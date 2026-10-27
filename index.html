@@ -27,6 +27,19 @@
             color: white;
             text-align: center;
             padding: 2.5rem 1rem;
+            position: relative;
+        }
+
+        /* Estilo para el logo de la universidad en el header */
+        .university-logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            max-height: 70px;
+            width: auto;
+            border-radius: 4px;
+            background: white;
+            padding: 4px;
         }
 
         header h1 {
@@ -98,6 +111,37 @@
             border: 1px solid #ddd;
         }
 
+        /* Caja de instrucciones de imágenes */
+        .instructions-box {
+            background-color: #eef7ff;
+            border-left: 5px solid #0066cc;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .instructions-box h4 {
+            margin-top: 0;
+            color: #004080;
+        }
+
+        /* Estilo para la animación de física */
+        .animation-container {
+            text-align: center;
+            background: #0b131a;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        canvas {
+            background: #000;
+            border-radius: 6px;
+            max-width: 100%;
+            box-shadow: inset 0 0 20px rgba(0, 102, 204, 0.3);
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -154,6 +198,9 @@
 <body>
 
     <header>
+        <!-- INSTRUCCIÓN LOGO: Sube tu imagen en formato JPG con el nombre "logo-uni.jpg" a tu repositorio de GitHub -->
+        <img src="logo-uni.jpg" alt="Logo Universidad" class="university-logo" onerror="this.style.display='none'">
+        
         <h1>Semana de Física Teórica 2026</h1>
         <p>Departamento de Física • Evento Académico Anual</p>
         <p><strong>Fecha:</strong> 25, 26 y 27 de Noviembre de 2026 | <strong>Horario:</strong> 16:00 a 20:00 hrs</p>
@@ -161,18 +208,38 @@
 
     <nav>
         <a href="#poster">Póster</a>
+        <a href="#animacion">Simulación</a>
         <a href="#programa">Programa</a>
-        <a href="#ponentes">Ponentes y Resúmenes</a>
+        <a href="#ponentes">Ponentes</a>
         <a href="#galeria">Galería</a>
     </nav>
 
     <div class="container">
+
+        <!-- CAJA CON INSTRUCCIONES VISUALES PARA EL USUARIO -->
+        <div class="instructions-box">
+            <h4>📌 Guía rápida para agregar tus archivos en GitHub:</h4>
+            <ul>
+                <li><strong>Logo de la Universidad:</strong> Sube tu imagen en formato JPG nombrada exactamente como <code>logo-uni.jpg</code> en la raíz de tu repositorio. Aparecerá automáticamente arriba a la izquierda del banner.</li>
+                <li><strong>Póster del evento:</strong> Sube tu cartel principal en formato JPG o PNG y asegúrate de que se llame <code>poster.jpg</code>.</li>
+                <li><strong>Fotografías de la galería:</strong> Sube tus fotos nombrándolas <code>foto1.jpg</code>, <code>foto2.jpg</code> y <code>foto3.jpg</code> para que se muestren en la sección final.</li>
+            </ul>
+        </div>
 
         <!-- SECCIÓN PÓSTER -->
         <section id="poster">
             <h2>Cartel Oficial</h2>
             <div class="poster-container">
                 <img src="poster.jpg" alt="Póster de la Semana de Física Teórica 2026" class="poster-img">
+            </div>
+        </section>
+
+        <!-- NUEVA SECCIÓN: ANIMACIÓN VISUAL DE FÍSICA (Ondas y Cargas en interacción) -->
+        <section id="animacion">
+            <h2>Simulación Interactiva: Ondas y Cargas en Interacción</h2>
+            <p style="text-align: center; font-size: 0.9rem; color: #666;">Demostración visual de ondas oscilantes y campos electromagnéticos simulados en tiempo real.</p>
+            <div class="animation-container">
+                <canvas id="physicsCanvas" width="800" height="300"></canvas>
             </div>
         </section>
 
@@ -296,8 +363,7 @@
                 <h3>Dr. León Manuel García de la Vega</h3>
                 <p><strong>Institución:</strong> Departamento de Física</p>
                 <p><strong>Título de la plática:</strong> Una mirada al Cosmos a través del Hielo: Francis Halzen, IceCube y la Nueva Frontera de la Física Teórica</p>
-                <p><strong>Resumen:</strong> En octubre de 2026, la Real Academia de las Ciencias de Suecia reconoció con el Premio Nobel de Física a Francis Halzen por su visión pionera al concebir y liderar el Observatorio de Neutrinos IceCube en el Polo Sur, transformando un kilómetro cúbico de hielo antártico en el telescopio de partículas más grande del planeta. Más allá de ser un hito de la física experimental, IceCube nació de las inquietudes de un físico teórico y fenomenólogo decidido a someter el Modelo Estándar y el Universo extremo a pruebas inalcanzables para los aceleradores terrestres.
-Esta charla recorre el desarrollo de IceCube y profundiza en su impacto transformador en la física teórica: desde la confirmación de la resonancia de Glashow a 6.3 PeV y la cartografía de la interacción bariónica mediante neutrinos de ultra-alta energía, hasta las restricciones severas a la violación de la invariancia de Lorentz (LIV), las oscilaciones a distancias cosmológicas y la apertura de la astronomía multimensajero junto a las ondas gravitacionales y los rayos gamma.</p>
+                <p><strong>Resumen:</strong> En octubre de 2026, la Real Academia de las Ciencias de Suecia reconoció con el Premio Nobel de Física a Francis Halzen por su visión pionera al concebir y liderar el Observatorio de Neutrinos IceCube en el Polo Sur, transformando un kilómetro cúbico de hielo antártico en el telescopio de partículas más grande del planeta. Más allá de ser un hito de la física experimental, IceCube nació de las inquietudes de un físico teórico y fenomenólogo decidido a someter el Modelo Estándar y el Universo extremo a pruebas inalcanzables para los aceleradores terrestres.</p>
             </div>
 
             <div class="speaker-card">
@@ -325,5 +391,76 @@ Esta charla recorre el desarrollo de IceCube y profundiza en su impacto transfor
         <p>Contacto: contacto@fisicateorica2026.edu</p>
     </footer>
 
+    <!-- SCRIPT DE LA ANIMACIÓN DE FÍSICA (Ondas y Cargas) -->
+    <script>
+        const canvas = document.getElementById('physicsCanvas');
+        const ctx = canvas.getContext('2d');
+        let angle = 0;
+
+        function drawPhysicsAnimation() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Dibujar ondas oscilantes (tipo campo electromagnético)
+            ctx.beginPath();
+            ctx.strokeStyle = '#00aaff';
+            ctx.lineWidth = 2;
+            for (let x = 0; x < canvas.width; x++) {
+                let y = canvas.height / 2 + Math.sin(x * 0.02 + angle) * 40 * Math.cos(angle * 0.5);
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            // Dibujar onda secundaria en desfase
+            ctx.beginPath();
+            ctx.strokeStyle = '#ff3366';
+            ctx.lineWidth = 1.5;
+            for (let x = 0; x < canvas.width; x++) {
+                let y = canvas.height / 2 + Math.cos(x * 0.025 - angle) * 30;
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            // Cargas eléctricas simuladas en interacción rotatoria
+            let cx1 = canvas.width / 3 + Math.sin(angle) * 50;
+            let cy1 = canvas.height / 2 + Math.cos(angle * 2) * 20;
+            
+            let cx2 = (canvas.width / 3) * 2 - Math.sin(angle) * 50;
+            let cy2 = canvas.height / 2 - Math.cos(angle * 2) * 20;
+
+            // Línea de campo entre cargas
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+            ctx.setLineDash([4, 4]);
+            ctx.moveTo(cx1, cy1);
+            ctx.lineTo(cx2, cy2);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Carga Positiva (+)
+            ctx.beginPath();
+            ctx.arc(cx1, cy1, 12, 0, Math.PI * 2);
+            ctx.fillStyle = '#ff3333';
+            ctx.fill();
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 14px sans-serif';
+            ctx.fillText('+', cx1 - 4, cy1 + 5);
+
+            // Carga Negativa (-)
+            ctx.beginPath();
+            ctx.arc(cx2, cy2, 12, 0, Math.PI * 2);
+            ctx.fillStyle = '#3366ff';
+            ctx.fill();
+            ctx.fillStyle = '#fff';
+            ctx.fillText('-', cx2 - 3, cy2 + 4);
+
+            angle += 0.03;
+            requestAnimationFrame(drawPhysicsAnimation);
+        }
+
+        drawPhysicsAnimation();
+    </script>
 </body>
 </html>
