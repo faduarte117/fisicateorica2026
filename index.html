@@ -80,6 +80,13 @@
             padding-bottom: 0.5rem;
         }
 
+        h3.day-title {
+            color: var(--secondary);
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--secondary);
+            padding-left: 10px;
+        }
+
         .poster-container {
             text-align: center;
         }
@@ -94,11 +101,12 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
         th, td {
-            padding: 12px;
+            padding: 10px 12px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
@@ -148,7 +156,7 @@
     <header>
         <h1>Semana de Física Teórica 2026</h1>
         <p>Departamento de Física • Evento Académico Anual</p>
-        <p><strong>Fecha:</strong> 10 al 14 de Noviembre de 2026</p>
+        <p><strong>Fecha:</strong> 25, 26 y 27 de Noviembre de 2026 | <strong>Horario:</strong> 16:00 a 20:00 hrs</p>
     </header>
 
     <nav>
@@ -164,7 +172,6 @@
         <section id="poster">
             <h2>Cartel Oficial</h2>
             <div class="poster-container">
-                <!-- Reemplaza "poster.jpg" con el nombre de tu archivo de imagen -->
                 <img src="poster.jpg" alt="Póster de la Semana de Física Teórica 2026" class="poster-img">
             </div>
         </section>
@@ -172,6 +179,9 @@
         <!-- SECCIÓN PROGRAMA -->
         <section id="programa">
             <h2>Programa de Actividades</h2>
+
+            <!-- DÍA 1 -->
+            <h3 class="day-title">Miércoles 25 de Noviembre</h3>
             <table>
                 <thead>
                     <tr>
@@ -182,24 +192,97 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>09:00 - 10:00</td>
+                        <td>16:00 - 16:20</td>
                         <td>Inauguración y Bienvenida</td>
                         <td>Comité Organizador</td>
                     </tr>
                     <tr>
-                        <td>10:00 - 11:30</td>
-                        <td>Las rosquillas y su relación con el viaje en el tiempo</td>
-                        <td>Dr. Cosme Fulanito</td>
+                        <td>16:30 - 17:20</td>
+                        <td>Una mirada al Cosmos a través del Hielo: Francis Halzen, IceCube y la Nueva Frontera</td>
+                        <td>Dr. León Manuel García de la Vega</td>
                     </tr>
                     <tr>
-                        <td>11:30 - 12:00</td>
+                        <td>17:30 - 18:00</td>
                         <td>Receso / Café</td>
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>12:00 - 13:30</td>
+                        <td>18:00 - 18:50</td>
+                        <td>Las rosquillas y su relación con el viaje en el tiempo</td>
+                        <td>Dr. Cosme Fulanito</td>
+                    </tr>
+                    <tr>
+                        <td>19:00 - 19:50</td>
                         <td>Teoría de Campos y Partículas Elementales</td>
-                        <td>Dr. Sultano de Tal </td>
+                        <td>Dr. Sultano de Tal</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- DÍA 2 -->
+            <h3 class="day-title">Jueves 26 de Noviembre</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Actividad / Plática</th>
+                        <th>Ponente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>16:00 - 16:50</td>
+                        <td>Avances en Mecánica Cuántica y Relatividad</td>
+                        <td>Dr. Roberto Gómez</td>
+                    </tr>
+                    <tr>
+                        <td>17:00 - 17:50</td>
+                        <td>Simetrías Ocultas en el Universo Temprano</td>
+                        <td>Dra. Elena Morales</td>
+                    </tr>
+                    <tr>
+                        <td>18:00 - 18:30</td>
+                        <td>Receso / Café</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>18:30 - 19:20</td>
+                        <td>Topología y Gravitación Cuántica</td>
+                        <td>Por confirmar</td>
+                    </tr>
+                    <tr>
+                        <td>19:20 - 20:00</td>
+                        <td>Discusión Abierta y Perspectivas Teóricas</td>
+                        <td>Todos los asistentes</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- DÍA 3 -->
+            <h3 class="day-title">Viernes 27 de Noviembre</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Actividad / Plática</th>
+                        <th>Ponente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>16:00 - 18:00</td>
+                        <td>Sesión de Pósters (Exposición y debate)</td>
+                        <td>Participantes y Estudiantes</td>
+                    </tr>
+                    <tr>
+                        <td>18:00 - 19:00</td>
+                        <td>Plática Magistral de Cierre</td>
+                        <td>Invitado Especial</td>
+                    </tr>
+                    <tr>
+                        <td>19:00 - 20:00</td>
+                        <td>Clausura y Convivio</td>
+                        <td>Comité Organizador</td>
                     </tr>
                 </tbody>
             </table>
@@ -210,17 +293,17 @@
             <h2>Ponentes y Resúmenes</h2>
 
             <div class="speaker-card">
-                <h3>Dr. Dr. León Manuel Garcia de la Vega</h3>
+                <h3>Dr. León Manuel García de la Vega</h3>
                 <p><strong>Institución:</strong> Departamento de Física</p>
-                <p><strong>Título de la plática:</strong> Una mirada al Cosmos a través del Hielo: Francis Halzen, IceCube y la Nueva Frontera de la Física Teóricad</p>
-                <p><strong>Resumen:</strong>En octubre de 2026, la Real Academia de las Ciencias de Suecia reconoció con el Premio Nobel de Física a Francis Halzen por su visión pionera al concebir y liderar el Observatorio de Neutrinos IceCube en el Polo Sur, transformando un kilómetro cúbico de hielo antártico en el telescopio de partículas más grande del planeta. Mas allá de ser un hito de la física experimental, IceCube nació de las inquietudes de un físico teórico y fenomenólogo decidido a someter el Modelo Estándar y el Universo extremo a pruebas inalcanzables para los aceleradores terrestres.
+                <p><strong>Título de la plática:</strong> Una mirada al Cosmos a través del Hielo: Francis Halzen, IceCube y la Nueva Frontera de la Física Teórica</p>
+                <p><strong>Resumen:</strong> En octubre de 2026, la Real Academia de las Ciencias de Suecia reconoció con el Premio Nobel de Física a Francis Halzen por su visión pionera al concebir y liderar el Observatorio de Neutrinos IceCube en el Polo Sur, transformando un kilómetro cúbico de hielo antártico en el telescopio de partículas más grande del planeta. Más allá de ser un hito de la física experimental, IceCube nació de las inquietudes de un físico teórico y fenomenólogo decidido a someter el Modelo Estándar y el Universo extremo a pruebas inalcanzables para los aceleradores terrestres.
 Esta charla recorre el desarrollo de IceCube y profundiza en su impacto transformador en la física teórica: desde la confirmación de la resonancia de Glashow a 6.3 PeV y la cartografía de la interacción bariónica mediante neutrinos de ultra-alta energía, hasta las restricciones severas a la violación de la invariancia de Lorentz (LIV), las oscilaciones a distancias cosmológicas y la apertura de la astronomía multimensajero junto a las ondas gravitacionales y los rayos gamma.</p>
             </div>
 
             <div class="speaker-card">
                 <h3>Dra. Elena Morales</h3>
                 <p><strong>Institución:</strong> Centro de Investigaciones Teóricas</p>
-                <p><strong>Título de la plática:</strong> Teoría de Campos y Partículas Elementales</p>
+                <p><strong>Título de la plática:</strong> Simetrías Ocultas en el Universo Temprano</p>
                 <p><strong>Resumen:</strong> Un recorrido accesible a través de las simetrías fundamentales en el Modelo Estándar y las búsquedas actuales de nueva física más allá de las partículas conocidas.</p>
             </div>
         </section>
@@ -229,7 +312,6 @@ Esta charla recorre el desarrollo de IceCube y profundiza en su impacto transfor
         <section id="galeria">
             <h2>Galería de Fotos</h2>
             <div class="gallery">
-                <!-- Reemplaza con los nombres de tus archivos de fotos -->
                 <img src="foto1.jpg" alt="Fotografía del evento 1">
                 <img src="foto2.jpg" alt="Fotografía del evento 2">
                 <img src="foto3.jpg" alt="Fotografía del evento 3">
