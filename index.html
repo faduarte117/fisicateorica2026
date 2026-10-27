@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana de Física Teórica 2026</title>
+    <style>
+        :root {
+            --primary: #1a2a3a;
+            --secondary: #0066cc;
+            --accent: #e6f2ff;
+            --text: #333333;
+            --bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            background-color: var(--secondary);
+            text-align: center;
+            padding: 0.8rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .poster-container {
+            text-align: center;
+        }
+
+        .poster-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .speaker-card {
+            border: 1px solid #e1e1e1;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            background-color: #fafafa;
+        }
+
+        .speaker-card h3 {
+            margin-top: 0;
+            color: var(--secondary);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--primary);
+            color: white;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Semana de Física Teórica 2026</h1>
+        <p>Departamento de Física • Evento Académico Anual</p>
+        <p><strong>Fecha:</strong> 10 al 14 de Noviembre de 2026</p>
+    </header>
+
+    <nav>
+        <a href="#poster">Póster</a>
+        <a href="#programa">Programa</a>
+        <a href="#ponentes">Ponentes y Resúmenes</a>
+        <a href="#galeria">Galería</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- SECCIÓN PÓSTER -->
+        <section id="poster">
+            <h2>Cartel Oficial</h2>
+            <div class="poster-container">
+                <!-- Reemplaza "poster.jpg" con el nombre de tu archivo de imagen -->
+                <img src="poster.jpg" alt="Póster de la Semana de Física Teórica 2026" class="poster-img">
+            </div>
+        </section>
+
+        <!-- SECCIÓN PROGRAMA -->
+        <section id="programa">
+            <h2>Programa de Actividades</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Actividad / Plática</th>
+                        <th>Ponente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>09:00 - 10:00</td>
+                        <td>Inauguración y Bienvenida</td>
+                        <td>Comité Organizador</td>
+                    </tr>
+                    <tr>
+                        <td>10:00 - 11:30</td>
+                        <td>Avances en Mecánica Cuántica y Relatividad</td>
+                        <td>Dr. Roberto Gómez</td>
+                    </tr>
+                    <tr>
+                        <td>11:30 - 12:00</td>
+                        <td>Receso / Café</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>12:00 - 13:30</td>
+                        <td>Teoría de Campos y Partículas Elementales</td>
+                        <td>Dra. Elena Morales</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECCIÓN PONENTES Y RESÚMENES -->
+        <section id="ponentes">
+            <h2>Ponentes y Resúmenes</h2>
+
+            <div class="speaker-card">
+                <h3>Dr. Roberto Gómez</h3>
+                <p><strong>Institución:</strong> Instituto de Ciencias Físicas</p>
+                <p><strong>Título de la plática:</strong> Avances en Mecánica Cuántica y Relatividad</p>
+                <p><strong>Resumen:</strong> En esta ponencia se discutirán los desarrollos más recientes en la unificación de principios cuánticos con la relatividad general, abordando las implicaciones cosmológicas y los experimentos recientes en física de altas energías.</p>
+            </div>
+
+            <div class="speaker-card">
+                <h3>Dra. Elena Morales</h3>
+                <p><strong>Institución:</strong> Centro de Investigaciones Teóricas</p>
+                <p><strong>Título de la plática:</strong> Teoría de Campos y Partículas Elementales</p>
+                <p><strong>Resumen:</strong> Un recorrido accesible a través de las simetrías fundamentales en el Modelo Estándar y las búsquedas actuales de nueva física más allá de las partículas conocidas.</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN GALERÍA DE FOTOS -->
+        <section id="galeria">
+            <h2>Galería de Fotos</h2>
+            <div class="gallery">
+                <!-- Reemplaza con los nombres de tus archivos de fotos -->
+                <img src="foto1.jpg" alt="Fotografía del evento 1">
+                <img src="foto2.jpg" alt="Fotografía del evento 2">
+                <img src="foto3.jpg" alt="Fotografía del evento 3">
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Semana de Física Teórica • Todos los derechos reservados</p>
+        <p>Contacto: contacto@fisicateorica2026.edu</p>
+    </footer>
+
+</body>
+</html>
