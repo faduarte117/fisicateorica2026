@@ -192,12 +192,53 @@
             border-radius: 6px;
         }
 
+        /* Estilos optimizados para el Footer */
         footer {
-            text-align: center;
-            padding: 2rem;
             background-color: var(--primary);
-            color: white;
+            color: #cccccc;
+            padding: 2rem;
             margin-top: 3rem;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .highlight-white {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-right p, .footer-left p {
+            margin: 2px 0;
+        }
+
+        .footer-left a {
+            color: #79bcff;
+            text-decoration: none;
+        }
+
+        .footer-left a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            .footer-right {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -230,8 +271,8 @@
         <div class="instructions-box">
             <h4>📌 Guía rápida para agregar tus archivos en GitHub:</h4>
             <ul>
-                <li><strong>Logo de la Universidad:</strong> Sube tu imagen en formato JPG nombrada como <code>logo-uni.jpg</code> en la raíz de tu repositorio.</li>
-                <li><strong>Póster del evento:</strong> Sube tu cartel principal nombrado como <code>poster.jpg</code>.</li>
+                <li><strong>Logo de la Universidad:</strong> Sube tu imagen en formato JPG nombrada como <code>logo.png</code> en la raíz de tu repositorio.</li>
+                <li><strong>Póster del evento:</strong> Sube tu cartel principal nombrado como <code>poster.png</code>.</li>
                 <li><strong>Fotografías:</strong> Sube tus fotos nombrándolas <code>foto1.jpg</code>, <code>foto2.jpg</code> y <code>foto3.jpg</code>.</li>
             </ul>
         </div>
@@ -277,7 +318,7 @@
                     <tr>
                         <td>18:00 - 18:50</td>
                         <td>Las rosquillas y su relación con el viaje en el tiempo</td>
-                        <td>Homero Simpsons</td>
+                        <td>Homero Simpson</td>
                     </tr>
                     <tr>
                         <td>19:00 - 19:50</td>
@@ -301,11 +342,11 @@
                     <tr>
                         <td>16:00 - 16:50</td>
                         <td>Cómo la mecánica clásica predijo a Neptuno</td>
-                        <td>Dr. José Daniel Castro Cisneros </td>
+                        <td>Dr. José Daniel Castro Cisneros</td>
                     </tr>
                     <tr>
                         <td>17:00 - 17:50</td>
-                        <td>Por Definir/td>
+                        <td>Por Definir</td>
                         <td>Dr. Red Richards</td>
                     </tr>
                     <tr>
@@ -340,12 +381,11 @@
                     <tr>
                         <td>16:00 - 16:40</td>
                         <td>Mensaje para las estudiantes de Física</td>
-                        <td>Dra. Ana Maria Cetto Kramis</td>
-                       
+                        <td>Dra. Ana María Cetto Kramis</td>
                     </tr>
                     <tr>
-                        <td>15:00 - 17:00</td>
-                         <td>Sesión de Pósters</td>
+                        <td>16:40 - 17:00</td>
+                        <td>Sesión de Pósters</td>
                         <td>Participantes y Estudiantes</td>
                     </tr>
                     <tr>
@@ -365,60 +405,60 @@
         <!-- SECCIÓN PONENTES Y RESÚMENES -->
         <section id="ponentes">
             <h2>Ponentes y Resúmenes</h2>
-  <div class="speaker-card">
+            <div class="speaker-card">
                 <h3>Dr. Arnulfo Castellanos Moreno</h3>
                 <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
-                <p><strong>Título de la plática:</strong>La Ecuación de Dirac con Álgebra Geométrica (el espín, el reloj de de Broglie y el zitterbewegung en una visión unificada)</p>
-                <p><strong>Resumen:</strong> El Álgebra Geométrica (AG) es un formalismo matemático que permite describir toda la física en un solo lenguaje y contiene: los vectores, matrices, espinores y tensores. Junto con el cálculo geométrico es un marco matemático más potente que contiene a la variable compleja y al cálculo de formas como casos particulares.
-El AG permite escribir la ecuación de Dirac sin usar matrices y facilita una descripción basada en números reales con vectores en el espacio tiempo de Minkowski. Permite reinterpretar su solución con un significado geométrico en el que el electrón sí tiene trayectoria y ésta es de tal forma que se puede recuperar la visión de de Broglie sobre la existencia de un movimiento periódico interno en la partícula. Allí mismo se logra explicar en qué consisten el espín y el zitterbewegung.
-El espíritu crítico de Hestenes representa un programa de investigación activo y una lente interpretativa poderosa. La interpretación del zitterbewegung como una trayectoria real y su extensión a la teoría cuántica de campos, el entrelazamiento, etc. son objeto de debate en la actualidad. No implica que la mecánica cuántica estándar está mal, significa que la AG nos ofrece una intuición física alternativa muy fértil que nos invita a seguir explorando.</p>
+                <p><strong>Título de la plática:</strong> La Ecuación de Dirac con Álgebra Geométrica (el espín, el reloj de de Broglie y el zitterbewegung en una visión unificada)</p>
+                <p><strong>Resumen:</strong> El Álgebra Geométrica (AG) es un formalismo matemático que permite describir toda la física en un solo lenguaje y contiene: los vectores, matrices, espinores y tensores. Junto con el cálculo geométrico es un marco matemático más potente que contiene a la variable compleja y al cálculo de formas como casos particulares. El AG permite escribir la ecuación de Dirac sin usar matrices y facilita una descripción basada en números reales con vectores en el espacio tiempo de Minkowski...</p>
             </div>
             
             <div class="speaker-card">
                 <h3>Dr. León Manuel García de la Vega</h3>
                 <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
                 <p><strong>Título de la plática:</strong> Una mirada al Cosmos a través del Hielo: Francis Halzen, IceCube y la Nueva Frontera de la Física Teórica</p>
-                <p><strong>Resumen:</strong> En octubre de 2026, la Real Academia de las Ciencias de Suecia reconoció con el Premio Nobel de Física a Francis Halzen por su visión pionera al concebir y liderar el Observatorio de Neutrinos IceCube en el Polo Sur, transformando un kilómetro cúbico de hielo antártico en el telescopio de partículas más grande del planeta.</p>
+                <p><strong>Resumen:</strong> En octubre de 2026, la Real Academia de las Ciencias de Suecia reconoció con el Premio Nobel de Física a Francis Halzen por su visión pionera al concebir y liderar el Observatorio de Neutrinos IceCube en el Polo Sur...</p>
             </div>
 
             <div class="speaker-card">
-                <h3> Dr. José Daniel Castro Cisneros</h3>
+                <h3>Dr. José Daniel Castro Cisneros</h3>
                 <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
-                <p><strong>Título de la plática:</strong>Cómo la mecánica clásica predijo a Neptuno</p>
-                <p><strong>Resumen:</strong> El descubrimiento de Neptuno en 1846 es reconocido como uno de los grandes ejemplos del poder predictivo de la Física Matemática. La acumulación de décadas de observaciones astronómicas mostró discrepancias entre la posición de Urano y la predicha al tomar en cuenta las perturbaciones debidas a los cuerpos conocidos del Sistema Solar. Este conflicto llevó a conjeturar la existencia de un cuerpo en la región exterior del Sistema Solar, y personajes de la época como John Couch Adams y Urbain Le Verrier lograron inferir las propiedades orbitales de lo que hoy conocemos como el planeta Neptuno.
-En esta charla revisaremos el problema desde una perspectiva moderna. Partiendo de las ecuaciones de movimiento y de la teoría de perturbaciones orbitales, se analizará cómo la presencia de un planeta exterior produce desviaciones medibles en la órbita de Urano. Además de su valor histórico, este ejemplo permite introducir ideas que continúan siendo fundamentales en la Física moderna, como el uso de métodos perturbativos, el planteamiento de problemas inversos y la detección indirecta de objetos físicos.</p>
+                <p><strong>Título de la plática:</strong> Cómo la mecánica clásica predijo a Neptuno</p>
+                <p><strong>Resumen:</strong> El descubrimiento de Neptuno en 1846 es reconocido como uno de los grandes ejemplos del poder predictivo de la Física Matemática. La acumulación de décadas de observaciones astronómicas mostró discrepancias entre la posición de Urano y la predicha...</p>
             </div>
-                <div class="speaker-card">
-                <h3> Dra. Ana Maria Cetto Kramis</h3>
+
+            <div class="speaker-card">
+                <h3>Dra. Ana María Cetto Kramis</h3>
                 <p><strong>Institución:</strong> Instituto de Física, UNAM</p>
-                <p><strong>Título de la plática:</strong> Mensaje a las estudiantes de Física </p>
-                <p><strong>Resumen:</strong> Mensaje dirigido a las estudiantes de Física de la Universidad de Sonora</p>
+                <p><strong>Título de la plática:</strong> Mensaje a las estudiantes de Física</p>
+                <p><strong>Resumen:</strong> Mensaje dirigido a las estudiantes de Física de la Universidad de Sonora.</p>
             </div>
         </section>
 
-        <!-- SECCIÓN GALERÍA DE FOTOS -->
-         <!-- <section id="galeria">-->
-                   <!--   <h2>Galería de Fotos</h2>-->
-         <!-- <div class="gallery">-->
-                     <!--     <img src="foto1.jpg" alt="Fotografía del evento 1">-->
-                     <!--     <img src="foto2.jpg" alt="Fotografía del evento 2">-->
-                     <!--     <img src="foto3.jpg" alt="Fotografía del evento 3">-->
-                   <!--   </div>-->
+        <!-- SECCIÓN GALERÍA DE FOTOS (Comentada temporalmente)
+        <section id="galeria">
+            <h2>Galería de Fotos</h2>
+            <div class="gallery">
+                <img src="foto1.jpg" alt="Fotografía del evento 1">
+                <img src="foto2.jpg" alt="Fotografía del evento 2">
+                <img src="foto3.jpg" alt="Fotografía del evento 3">
+            </div>
         </section>
-      
+        -->
+        
     </div>
-<footer>
-    <div class="footer-container">
-        <div class="footer-left">
-            <p><span class="highlight-white">Semana de Física Teórica 2026</span> • Todos los derechos reservados</p>
-            <p>Contacto: <a href="mailto:sft2026@unison.mx">sft2026@unison.mx</a></p>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <p><span class="highlight-white">Semana de Física Teórica 2026</span> • Todos los derechos reservados</p>
+                <p>Contacto: <a href="mailto:sft2026@unison.mx">sft2026@unison.mx</a></p>
+            </div>
+            <div class="footer-right">
+                <p><strong>Academia de Física Teórica</strong></p>
+                <p>Departamento de Física • Universidad de Sonora</p>
+            </div>
         </div>
-        <div class="footer-right">
-            <p><strong>Academia de Física Teórica</strong></p>
-            <p>Departamento de Física • Universidad de Sonora</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <!-- SCRIPT DE ANIMACIÓN DE ONDA DE LUZ Y ECUACIONES FLOTANTES DE FONDO -->
     <script>
@@ -432,22 +472,20 @@ En esta charla revisaremos el problema desde una perspectiva moderna. Partiendo 
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        // Fórmulas teóricas emblemáticas para flotar de fondo
-     const equations = [
-    "iℏ (∂/∂t)|ψ⟩ = H|ψ⟩",                       // Ecuación de Schrödinger
-    "(iγᵐ ∂ₘ - m)ψ = 0",                        // Ecuación de Dirac
-    "Rₘᵥ - ½gₘᵥR + Λgₘᵥ = (8πG/c⁴)Tₘᵥ",          // Ecuación del campo de Einstein
-    "∇ × E = -∂B/∂t",                           // Ley de Faraday (Maxwell)
-    "∇ · D = ρ",                                // Ley de Gauss
-    "S = k_B ln Ω",                             // Entropía de Boltzmann
-    "E = mc²",                                  // Equivalencia masa-energía
-    "ρ(∂u/∂t + u · ∇u) = -∇p + μ∇²u + f",       // Ecuación de Navier-Stokes
-    "ℒ = ψ̄(iγᵐ Dₘ - m)ψ - ¼ FₘᵥFᵐᵛ",            // Lagrangiano de QED
-    "□Aᵐ = μ₀ Jᵐ",                              // Electrodinámica cuántica (Ecuación de onda)
-    "[x, p] = iℏ"                               // Relación de conmutación canónica
-];
+        const equations = [
+            "iℏ (∂/∂t)|ψ⟩ = H|ψ⟩",
+            "(iγᵐ ∂ₘ - m)ψ = 0",
+            "Rₘᵥ - ½gₘᵥR + Λgₘᵥ = (8πG/c⁴)Tₘᵥ",
+            "∇ × E = -∂B/∂t",
+            "∇ · D = ρ",
+            "S = k_B ln Ω",
+            "E = mc²",
+            "ρ(∂u/∂t + u · ∇u) = -∇p + μ∇²u + f",
+            "ℒ = ψ̄(iγᵐ Dₘ - m)ψ - ¼ FₘᵥFᵐᵛ",
+            "□Aᵐ = μ₀ Jᵐ",
+            "[x, p] = iℏ"
+        ];
 
-        // Crear partículas/ecuaciones flotantes
         let eqParticles = [];
         for (let i = 0; i < equations.length; i++) {
             eqParticles.push({
@@ -465,7 +503,6 @@ En esta charla revisaremos el problema desde una perspectiva moderna. Partiendo 
         function animateBanner() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // 1. Dibujar y mover ecuaciones flotantes de fondo
             ctx.font = '15px "Courier New", monospace';
             ctx.fillStyle = 'rgba(100, 180, 255, 0.35)';
             eqParticles.forEach(p => {
@@ -473,12 +510,10 @@ En esta charla revisaremos el problema desde una perspectiva moderna. Partiendo 
                 p.x += p.speedX;
                 p.y += p.speedY;
 
-                // Rebotar en los bordes
                 if (p.x < 0 || p.x > canvas.width - 150) p.speedX *= -1;
                 if (p.y < 20 || p.y > canvas.height - 10) p.speedY *= -1;
             });
 
-            // 2. Dibujar onda electromagnética (luz) oscilante principal
             ctx.beginPath();
             ctx.strokeStyle = 'rgba(0, 170, 255, 0.7)';
             ctx.lineWidth = 2.5;
@@ -489,7 +524,6 @@ En esta charla revisaremos el problema desde una perspectiva moderna. Partiendo 
             }
             ctx.stroke();
 
-            // Onda desfasada complementaria (campo magnético perpendicular)
             ctx.beginPath();
             ctx.strokeStyle = 'rgba(255, 100, 150, 0.5)';
             ctx.lineWidth = 1.5;
