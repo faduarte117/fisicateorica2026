@@ -23,24 +23,22 @@
             position: relative;
         }
 
-        /* LIENZO DE FONDO GENERAL PARA CREACIÓN Y ANIQUILACIÓN DE PARTÍCULAS */
+        /* LIENZO DE FONDO GENERAL PARA COLISIÓN, CREACIÓN Y ANIQUILACIÓN */
         #particlesCanvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0; /* Detrás del contenido pero sobre el fondo */
-            pointer-events: none; /* Permite hacer clic a través de él */
+            z-index: 0;
+            pointer-events: none;
         }
 
-        /* Asegurar que todo el contenido esté por encima del canvas general */
         header, nav, .container, footer {
             position: relative;
             z-index: 2;
         }
 
-        /* BANNER CON ANIMACIÓN DE ONDAS Y ECUACIONES DE FONDO */
         header {
             background-color: #0b131a;
             color: white;
@@ -52,7 +50,6 @@
             z-index: 2;
         }
 
-        /* Lienzo para la animación de onda de luz y fórmulas de fondo */
         #bannerCanvas {
             position: absolute;
             top: 0;
@@ -69,7 +66,6 @@
             z-index: 2;
         }
 
-        /* LOGO MÁS GRANDE Y TRANSPARENTE */
         .university-logo {
             position: absolute;
             top: 25px;
@@ -198,19 +194,6 @@
             color: var(--secondary);
         }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 6px;
-        }
-
         footer {
             background-color: var(--primary);
             color: #cccccc;
@@ -267,7 +250,6 @@
 </head>
 <body>
 
-    <!-- Canvas global para la animación de creación y aniquilación de partículas de fondo -->
     <canvas id="particlesCanvas"></canvas>
 
     <header>
@@ -326,7 +308,7 @@
                     </tr>
                     <tr>
                         <td>16:30 - 17:20</td>
-                        <td>La Ecuación de Dirac con Álgebra Geométrica (el espín, el reloj de de Broglie y el zitterbewegung en una visión unificada)</td>
+                        <td>La Ecuación de Dirac con Álgebra Geométrica</td>
                         <td>Dr. Arnulfo Castellanos Moreno</td>
                     </tr>
                     <tr>
@@ -341,79 +323,8 @@
                     </tr>
                     <tr>
                         <td>19:00 - 19:50</td>
-                        <td>Una mirada al Cosmos a través del Hielo: Francis Halzen, IceCube y la Nueva Frontera</td>
+                        <td>Una mirada al Cosmos a través del Hielo: Francis Halzen, IceCube</td>
                         <td>Dr. León Manuel García de la Vega</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3 class="day-title">Jueves 26 de Noviembre</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Hora</th>
-                        <th>Actividad / Plática</th>
-                        <th>Ponente</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>16:00 - 16:50</td>
-                        <td>Cómo la mecánica clásica predijo a Neptuno</td>
-                        <td>Dr. José Daniel Castro Cisneros</td>
-                    </tr>
-                    <tr>
-                        <td>17:00 - 17:50</td>
-                        <td>Por Definir</td>
-                        <td>Dr. Red Richards</td>
-                    </tr>
-                    <tr>
-                        <td>18:00 - 18:30</td>
-                        <td>Receso / Café</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>18:30 - 19:20</td>
-                        <td>Por Definir</td>
-                        <td>Dr. Bruce Banner</td>
-                    </tr>
-                    <tr>
-                        <td>19:20 - 20:00</td>
-                        <td>Discusión Abierta y Perspectivas Teóricas</td>
-                        <td>Todos los asistentes</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3 class="day-title">Viernes 27 de Noviembre</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Hora</th>
-                        <th>Actividad / Plática</th>
-                        <th>Ponente</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>16:00 - 16:40</td>
-                        <td>Mensaje para las estudiantes de Física</td>
-                        <td>Dra. Ana María Cetto Kramis</td>
-                    </tr>
-                    <tr>
-                        <td>16:40 - 17:00</td>
-                        <td>Sesión de Pósters</td>
-                        <td>Participantes y Estudiantes</td>
-                    </tr>
-                    <tr>
-                        <td>17:00 - 18:00</td>
-                        <td>Plática por Definir</td>
-                        <td>Por Definir</td>
-                    </tr>
-                    <tr>
-                        <td>18:00 - 19:00</td>
-                        <td>Clausura y Convivio</td>
-                        <td>Comité Organizador</td>
                     </tr>
                 </tbody>
             </table>
@@ -424,29 +335,8 @@
             <div class="speaker-card">
                 <h3>Dr. Arnulfo Castellanos Moreno</h3>
                 <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
-                <p><strong>Título de la plática:</strong> La Ecuación de Dirac con Álgebra Geométrica (el espín, el reloj de de Broglie y el zitterbewegung en una visión unificada)</p>
-                <p><strong>Resumen:</strong> El Álgebra Geométrica (AG) es un formalismo matemático que permite describir toda la física en un solo lenguaje y contiene: los vectores, matrices, espinores y tensores...</p>
-            </div>
-            
-            <div class="speaker-card">
-                <h3>Dr. León Manuel García de la Vega</h3>
-                <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
-                <p><strong>Título de la plática:</strong> Una mirada al Cosmos a través del Hielo: Francis Halzen, IceCube y la Nueva Frontera de la Física Teórica</p>
-                <p><strong>Resumen:</strong> En octubre de 2026, la Real Academia de las Ciencias de Suecia reconoció con el Premio Nobel de Física a Francis Halzen...</p>
-            </div>
-
-            <div class="speaker-card">
-                <h3>Dr. José Daniel Castro Cisneros</h3>
-                <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
-                <p><strong>Título de la plática:</strong> Cómo la mecánica clásica predijo a Neptuno</p>
-                <p><strong>Resumen:</strong> El descubrimiento de Neptuno en 1846 es reconocido como uno de los grandes ejemplos del poder predictivo de la Física Matemática...</p>
-            </div>
-
-            <div class="speaker-card">
-                <h3>Dra. Ana María Cetto Kramis</h3>
-                <p><strong>Institución:</strong> Instituto de Física, UNAM</p>
-                <p><strong>Título de la plática:</strong> Mensaje a las estudiantes de Física</p>
-                <p><strong>Resumen:</strong> Mensaje dirigido a las estudiantes de Física de la Universidad de Sonora.</p>
+                <p><strong>Título de la plática:</strong> La Ecuación de Dirac con Álgebra Geométrica</p>
+                <p><strong>Resumen:</strong> El Álgebra Geométrica (AG) es un formalismo matemático que permite describir toda la física en un solo lenguaje...</p>
             </div>
         </section>
         
@@ -465,7 +355,7 @@
         </div>
     </footer>
 
-    <!-- SCRIPT 1: ANIMACIÓN DE CREACIÓN Y ANIQUILACIÓN DE PARTÍCULAS (FONDO GENERAL) -->
+    <!-- SCRIPT DE CREACIÓN, COLISIÓN Y ANIQUILACIÓN DE PARTÍCULAS -->
     <script>
         const pCanvas = document.getElementById('particlesCanvas');
         const pCtx = pCanvas.getContext('2d');
@@ -478,22 +368,33 @@
         window.addEventListener('resize', resizePCanvas);
 
         let pairs = [];
-        // Generar pares de partículas (creación y aniquilación)
+
         function createPair() {
-            if (pairs.length < 15) { // Cantidad de pares simultáneos en pantalla
-                let x = Math.random() * pCanvas.width;
-                let y = Math.random() * pCanvas.height;
+            if (pairs.length < 12) {
+                // Definir un punto de colisión central aleatorio en pantalla
+                let targetX = Math.random() * (pCanvas.width - 200) + 100;
+                let targetY = Math.random() * (pCanvas.height - 200) + 100;
+
+                // Partícula 1 (ej. Electrón - Azul) nace lejos a la izquierda/arriba
+                let x1 = targetX + (Math.random() - 0.5) * 300;
+                let y1 = targetY + (Math.random() - 0.5) * 300;
+
+                // Partícula 2 (ej. Positrón - Rosita/Rojo) nace lejos en dirección opuesta
+                let x2 = targetX - (x1 - targetX);
+                let y2 = targetY - (y1 - targetY);
+
                 pairs.push({
-                    x: x,
-                    y: y,
-                    vx1: (Math.random() - 0.5) * 0.8,
-                    vy1: (Math.random() - 0.5) * 0.8,
-                    vx2: (Math.random() - 0.5) * 0.8,
-                    vy2: (Math.random() - 0.5) * 0.8,
-                    alpha: 0,
-                    maxAlpha: Math.random() * 0.4 + 0.2,
-                    life: 0,
-                    maxLife: Math.random() * 200 + 100 // Duración del ciclo antes de aniquilarse
+                    x1: x1, y1: y1,
+                    x2: x2, y2: y2,
+                    targetX: targetX,
+                    targetY: targetY,
+                    vx1: (targetX - x1) / 80,
+                    vy1: (targetY - y1) / 80,
+                    vx2: (targetX - x2) / 80,
+                    vy2: (targetY - y2) / 80,
+                    state: 'traveling', // 'traveling', 'annihilating', 'done'
+                    flashRadius: 0,
+                    alpha: 1
                 });
             }
         }
@@ -501,36 +402,48 @@
         function animateParticles() {
             pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
 
-            if (Math.random() < 0.1) createPair();
+            if (Math.random() < 0.08) createPair();
 
             pairs.forEach((p, index) => {
-                p.life++;
-                // Fase de creación (aumenta opacidad) y aniquilación (disminuye opacidad al final de su vida)
-                if (p.life < 50) {
-                    p.alpha = (p.life / 50) * p.maxAlpha;
-                } else if (p.life > p.maxLife - 50) {
-                    p.alpha = ((p.maxLife - p.life) / 50) * p.maxAlpha;
-                }
+                if (p.state === 'traveling') {
+                    // Mover ambas partículas hacia el punto de colisión
+                    p.x1 += p.vx1;
+                    p.y1 += p.vy1;
+                    p.x2 += p.vx2;
+                    p.y2 += p.vy2;
 
-                p.x += p.vx1;
-                p.y += p.vy1;
+                    // Dibujar Partícula 1 (Azul)
+                    pCtx.beginPath();
+                    pCtx.arc(p.x1, p.y1, 3, 0, Math.PI * 2);
+                    pCtx.fillStyle = 'rgba(0, 150, 255, 0.7)';
+                    pCtx.fill();
 
-                pCtx.beginPath();
-                pCtx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
-                pCtx.fillStyle = `rgba(0, 120, 255, ${p.alpha})`; // Partícula tipo 1 (ej. electrón)
-                pCtx.fill();
+                    // Dibujar Partícula 2 (Rosita/Antipartícula)
+                    pCtx.beginPath();
+                    pCtx.arc(p.x2, p.y2, 3, 0, Math.PI * 2);
+                    pCtx.fillStyle = 'rgba(255, 100, 150, 0.7)';
+                    pCtx.fill();
 
-                // Línea de interacción sutil entre el par de partículas virtuales
-                pCtx.beginPath();
-                pCtx.moveTo(p.x, p.y);
-                pCtx.lineTo(p.x + 20, p.y + 20);
-                pCtx.strokeStyle = `rgba(150, 200, 255, ${p.alpha * 0.3})`;
-                pCtx.lineWidth = 0.5;
-                pCtx.stroke();
+                    // Detectar si llegaron al punto de colisión (distancia muy corta)
+                    let dist = Math.hypot(p.x1 - p.targetX, p.y1 - p.targetY);
+                    if (dist < 4) {
+                        p.state = 'annihilating';
+                    }
+                } 
+                else if (p.state === 'annihilating') {
+                    // Efecto de destello de aniquilación (emisión de energía en onda expansiva)
+                    p.flashRadius += 1.5;
+                    p.alpha -= 0.03;
 
-                // Eliminar par al cumplir su tiempo de vida (aniquilación)
-                if (p.life >= p.maxLife) {
-                    pairs.splice(index, 1);
+                    pCtx.beginPath();
+                    pCtx.arc(p.targetX, p.targetY, p.flashRadius, 0, Math.PI * 2);
+                    pCtx.strokeStyle = `rgba(255, 255, 255, ${Math.max(p.alpha, 0)})`;
+                    pCtx.lineWidth = 1.5;
+                    pCtx.stroke();
+
+                    if (p.alpha <= 0) {
+                        pairs.splice(index, 1);
+                    }
                 }
             });
 
@@ -540,7 +453,7 @@
         animateParticles();
     </script>
 
-    <!-- SCRIPT 2: ANIMACIÓN DE ONDA DE LUZ Y ECUACIONES FLOTANTES DE FONDO (BANNER) -->
+    <!-- SCRIPT DEL BANNER (Ondas y Ecuaciones) -->
     <script>
         const canvas = document.getElementById('bannerCanvas');
         const ctx = canvas.getContext('2d');
@@ -553,17 +466,8 @@
         window.addEventListener('resize', resizeCanvas);
 
         const equations = [
-            "iℏ (∂/∂t)|ψ⟩ = H|ψ⟩",
-            "(iγᵐ ∂ₘ - m)ψ = 0",
-            "Rₘᵥ - ½gₘᵥR + Λgₘᵥ = (8πG/c⁴)Tₘᵥ",
-            "∇ × E = -∂B/∂t",
-            "∇ · D = ρ",
-            "S = k_B ln Ω",
-            "E = mc²",
-            "ρ(∂u/∂t + u · ∇u) = -∇p + μ∇²u + f",
-            "ℒ = ψ̄(iγᵐ Dₘ - m)ψ - ¼ FₘᵥFᵐᵛ",
-            "□Aᵐ = μ₀ Jᵐ",
-            "[x, p] = iℏ"
+            "iℏ (∂/∂t)|ψ⟩ = H|ψ⟩", "(iγᵐ ∂ₘ - m)ψ = 0", 
+            "Rₘᵥ - ½gₘᵥR + Λgₘᵥ = (8πG/c⁴)Tₘᵥ", "∇ × E = -∂B/∂t", "E = mc²"
         ];
 
         let eqParticles = [];
@@ -573,51 +477,24 @@
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
                 speedX: (Math.random() - 0.5) * 0.4,
-                speedY: (Math.random() - 0.5) * 0.4,
-                size: Math.floor(Math.random() * 4) + 14
+                speedY: (Math.random() - 0.5) * 0.4
             });
         }
 
         let angle = 0;
-
         function animateBanner() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
             ctx.font = '15px "Courier New", monospace';
             ctx.fillStyle = 'rgba(100, 180, 255, 0.35)';
             eqParticles.forEach(p => {
                 ctx.fillText(p.text, p.x, p.y);
-                p.x += p.speedX;
-                p.y += p.speedY;
-
+                p.x += p.speedX; p.y += p.speedY;
                 if (p.x < 0 || p.x > canvas.width - 150) p.speedX *= -1;
                 if (p.y < 20 || p.y > canvas.height - 10) p.speedY *= -1;
             });
-
-            ctx.beginPath();
-            ctx.strokeStyle = 'rgba(0, 170, 255, 0.7)';
-            ctx.lineWidth = 2.5;
-            for (let x = 0; x < canvas.width; x++) {
-                let y = canvas.height / 2 + Math.sin(x * 0.015 + angle) * 35;
-                if (x === 0) ctx.moveTo(x, y);
-                else ctx.lineTo(x, y);
-            }
-            ctx.stroke();
-
-            ctx.beginPath();
-            ctx.strokeStyle = 'rgba(255, 100, 150, 0.5)';
-            ctx.lineWidth = 1.5;
-            for (let x = 0; x < canvas.width; x++) {
-                let y = canvas.height / 2 + Math.cos(x * 0.015 - angle) * 25;
-                if (x === 0) ctx.moveTo(x, y);
-                else ctx.lineTo(x, y);
-            }
-            ctx.stroke();
-
             angle += 0.04;
             requestAnimationFrame(animateBanner);
         }
-
         animateBanner();
     </script>
 </body>
