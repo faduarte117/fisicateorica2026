@@ -20,6 +20,24 @@
             background-color: var(--bg);
             margin: 0;
             padding: 0;
+            position: relative;
+        }
+
+        /* LIENZO DE FONDO GENERAL PARA CREACIÓN Y ANIQUILACIÓN DE PARTÍCULAS */
+        #particlesCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Detrás del contenido pero sobre el fondo */
+            pointer-events: none; /* Permite hacer clic a través de él */
+        }
+
+        /* Asegurar que todo el contenido esté por encima del canvas general */
+        header, nav, .container, footer {
+            position: relative;
+            z-index: 2;
         }
 
         /* BANNER CON ANIMACIÓN DE ONDAS Y ECUACIONES DE FONDO */
@@ -31,6 +49,7 @@
             position: relative;
             overflow: hidden;
             border-bottom: 4px solid var(--secondary);
+            z-index: 2;
         }
 
         /* Lienzo para la animación de onda de luz y fórmulas de fondo */
@@ -45,7 +64,6 @@
             pointer-events: none;
         }
 
-        /* Asegurar que el contenido esté por encima de la animación */
         .header-content {
             position: relative;
             z-index: 2;
@@ -56,12 +74,12 @@
             position: absolute;
             top: 25px;
             left: 30px;
-            max-height: 110px; /* Tamaño más grande */
+            max-height: 110px;
             width: auto;
-            background: transparent; /* Fondo transparente */
-            padding: 0; /* Sin relleno blanco */
+            background: transparent;
+            padding: 0;
             z-index: 3;
-            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6)); /* Sombra sutil para que resalte en el fondo oscuro */
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
         }
 
         header h1 {
@@ -193,7 +211,6 @@
             border-radius: 6px;
         }
 
-        /* Estilos optimizados para el Footer */
         footer {
             background-color: var(--primary);
             color: #cccccc;
@@ -240,7 +257,6 @@
             .footer-right {
                 text-align: center;
             }
-            /* Opcional: ajustar tamaño del logo en móviles si es necesario */
             .university-logo {
                 max-height: 80px;
                 top: 15px;
@@ -251,12 +267,12 @@
 </head>
 <body>
 
-    <header>
-        <!-- Canvas para la animación de ecuaciones y onda de luz de fondo -->
-        <canvas id="bannerCanvas"></canvas>
+    <!-- Canvas global para la animación de creación y aniquilación de partículas de fondo -->
+    <canvas id="particlesCanvas"></canvas>
 
-        <!-- Logo de la Universidad (Asegúrate de que tu imagen 'logo.png' tenga fondo transparente PNG) -->
-        <img src="logo.png" alt="Logo Universidad" class="university-logo" onerror="this.style.display='none'">
+    <header>
+        <canvas id="bannerCanvas"></canvas>
+        <img src="unison.png" alt="Logo Universidad" class="university-logo" onerror="this.style.display='none'">
         
         <div class="header-content">
             <h1>Semana de Física Teórica 2026</h1>
@@ -274,7 +290,6 @@
 
     <div class="container">
 
-        <!-- CAJA DE INSTRUCCIONES -->
         <div class="instructions-box">
             <h4>📌 Guía rápida para agregar tus archivos en GitHub:</h4>
             <ul>
@@ -284,7 +299,6 @@
             </ul>
         </div>
 
-        <!-- SECCIÓN PÓSTER -->
         <section id="poster">
             <h2>Cartel Oficial</h2>
             <div class="poster-container">
@@ -292,11 +306,9 @@
             </div>
         </section>
 
-        <!-- SECCIÓN PROGRAMA -->
         <section id="programa">
             <h2>Programa de Actividades</h2>
 
-            <!-- DÍA 1 -->
             <h3 class="day-title">Miércoles 25 de Noviembre</h3>
             <table>
                 <thead>
@@ -335,7 +347,6 @@
                 </tbody>
             </table>
 
-            <!-- DÍA 2 -->
             <h3 class="day-title">Jueves 26 de Noviembre</h3>
             <table>
                 <thead>
@@ -374,7 +385,6 @@
                 </tbody>
             </table>
 
-            <!-- DÍA 3 -->
             <h3 class="day-title">Viernes 27 de Noviembre</h3>
             <table>
                 <thead>
@@ -409,28 +419,27 @@
             </table>
         </section>
 
-        <!-- SECCIÓN PONENTES Y RESÚMENES -->
         <section id="ponentes">
             <h2>Ponentes y Resúmenes</h2>
             <div class="speaker-card">
                 <h3>Dr. Arnulfo Castellanos Moreno</h3>
                 <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
                 <p><strong>Título de la plática:</strong> La Ecuación de Dirac con Álgebra Geométrica (el espín, el reloj de de Broglie y el zitterbewegung en una visión unificada)</p>
-                <p><strong>Resumen:</strong> El Álgebra Geométrica (AG) es un formalismo matemático que permite describir toda la física en un solo lenguaje y contiene: los vectores, matrices, espinores y tensores. Junto con el cálculo geométrico es un marco matemático más potente que contiene a la variable compleja y al cálculo de formas como casos particulares. El AG permite escribir la ecuación de Dirac sin usar matrices y facilita una descripción basada en números reales con vectores en el espacio tiempo de Minkowski...</p>
+                <p><strong>Resumen:</strong> El Álgebra Geométrica (AG) es un formalismo matemático que permite describir toda la física en un solo lenguaje y contiene: los vectores, matrices, espinores y tensores...</p>
             </div>
             
             <div class="speaker-card">
                 <h3>Dr. León Manuel García de la Vega</h3>
                 <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
                 <p><strong>Título de la plática:</strong> Una mirada al Cosmos a través del Hielo: Francis Halzen, IceCube y la Nueva Frontera de la Física Teórica</p>
-                <p><strong>Resumen:</strong> En octubre de 2026, la Real Academia de las Ciencias de Suecia reconoció con el Premio Nobel de Física a Francis Halzen por su visión pionera al concebir y liderar el Observatorio de Neutrinos IceCube en el Polo Sur...</p>
+                <p><strong>Resumen:</strong> En octubre de 2026, la Real Academia de las Ciencias de Suecia reconoció con el Premio Nobel de Física a Francis Halzen...</p>
             </div>
 
             <div class="speaker-card">
                 <h3>Dr. José Daniel Castro Cisneros</h3>
                 <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
                 <p><strong>Título de la plática:</strong> Cómo la mecánica clásica predijo a Neptuno</p>
-                <p><strong>Resumen:</strong> El descubrimiento de Neptuno en 1846 es reconocido como uno de los grandes ejemplos del poder predictivo de la Física Matemática. La acumulación de décadas de observaciones astronómicas mostró discrepancias entre la posición de Urano y la predicha...</p>
+                <p><strong>Resumen:</strong> El descubrimiento de Neptuno en 1846 es reconocido como uno de los grandes ejemplos del poder predictivo de la Física Matemática...</p>
             </div>
 
             <div class="speaker-card">
@@ -440,17 +449,6 @@
                 <p><strong>Resumen:</strong> Mensaje dirigido a las estudiantes de Física de la Universidad de Sonora.</p>
             </div>
         </section>
-
-        <!-- SECCIÓN GALERÍA DE Fotos (Comentada temporalmente)
-        <section id="galeria">
-            <h2>Galería de Fotos</h2>
-            <div class="gallery">
-                <img src="foto1.jpg" alt="Fotografía del evento 1">
-                <img src="foto2.jpg" alt="Fotografía del evento 2">
-                <img src="foto3.jpg" alt="Fotografía del evento 3">
-            </div>
-        </section>
-        -->
         
     </div>
 
@@ -467,7 +465,82 @@
         </div>
     </footer>
 
-    <!-- SCRIPT DE ANIMACIÓN DE ONDA DE LUZ Y ECUACIONES FLOTANTES DE FONDO -->
+    <!-- SCRIPT 1: ANIMACIÓN DE CREACIÓN Y ANIQUILACIÓN DE PARTÍCULAS (FONDO GENERAL) -->
+    <script>
+        const pCanvas = document.getElementById('particlesCanvas');
+        const pCtx = pCanvas.getContext('2d');
+
+        function resizePCanvas() {
+            pCanvas.width = window.innerWidth;
+            pCanvas.height = window.innerHeight;
+        }
+        resizePCanvas();
+        window.addEventListener('resize', resizePCanvas);
+
+        let pairs = [];
+        // Generar pares de partículas (creación y aniquilación)
+        function createPair() {
+            if (pairs.length < 15) { // Cantidad de pares simultáneos en pantalla
+                let x = Math.random() * pCanvas.width;
+                let y = Math.random() * pCanvas.height;
+                pairs.push({
+                    x: x,
+                    y: y,
+                    vx1: (Math.random() - 0.5) * 0.8,
+                    vy1: (Math.random() - 0.5) * 0.8,
+                    vx2: (Math.random() - 0.5) * 0.8,
+                    vy2: (Math.random() - 0.5) * 0.8,
+                    alpha: 0,
+                    maxAlpha: Math.random() * 0.4 + 0.2,
+                    life: 0,
+                    maxLife: Math.random() * 200 + 100 // Duración del ciclo antes de aniquilarse
+                });
+            }
+        }
+
+        function animateParticles() {
+            pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+
+            if (Math.random() < 0.1) createPair();
+
+            pairs.forEach((p, index) => {
+                p.life++;
+                // Fase de creación (aumenta opacidad) y aniquilación (disminuye opacidad al final de su vida)
+                if (p.life < 50) {
+                    p.alpha = (p.life / 50) * p.maxAlpha;
+                } else if (p.life > p.maxLife - 50) {
+                    p.alpha = ((p.maxLife - p.life) / 50) * p.maxAlpha;
+                }
+
+                p.x += p.vx1;
+                p.y += p.vy1;
+
+                pCtx.beginPath();
+                pCtx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+                pCtx.fillStyle = `rgba(0, 120, 255, ${p.alpha})`; // Partícula tipo 1 (ej. electrón)
+                pCtx.fill();
+
+                // Línea de interacción sutil entre el par de partículas virtuales
+                pCtx.beginPath();
+                pCtx.moveTo(p.x, p.y);
+                pCtx.lineTo(p.x + 20, p.y + 20);
+                pCtx.strokeStyle = `rgba(150, 200, 255, ${p.alpha * 0.3})`;
+                pCtx.lineWidth = 0.5;
+                pCtx.stroke();
+
+                // Eliminar par al cumplir su tiempo de vida (aniquilación)
+                if (p.life >= p.maxLife) {
+                    pairs.splice(index, 1);
+                }
+            });
+
+            requestAnimationFrame(animateParticles);
+        }
+
+        animateParticles();
+    </script>
+
+    <!-- SCRIPT 2: ANIMACIÓN DE ONDA DE LUZ Y ECUACIONES FLOTANTES DE FONDO (BANNER) -->
     <script>
         const canvas = document.getElementById('bannerCanvas');
         const ctx = canvas.getContext('2d');
