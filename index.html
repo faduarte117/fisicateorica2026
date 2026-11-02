@@ -51,16 +51,17 @@
             z-index: 2;
         }
 
+        /* LOGO MÁS GRANDE Y TRANSPARENTE */
         .university-logo {
             position: absolute;
-            top: 30px;
+            top: 25px;
             left: 30px;
-            max-height: 70px;
+            max-height: 110px; /* Tamaño más grande */
             width: auto;
-            border-radius: 4px;
-            background: white;
-            padding: 4px;
+            background: transparent; /* Fondo transparente */
+            padding: 0; /* Sin relleno blanco */
             z-index: 3;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6)); /* Sombra sutil para que resalte en el fondo oscuro */
         }
 
         header h1 {
@@ -239,6 +240,12 @@
             .footer-right {
                 text-align: center;
             }
+            /* Opcional: ajustar tamaño del logo en móviles si es necesario */
+            .university-logo {
+                max-height: 80px;
+                top: 15px;
+                left: 15px;
+            }
         }
     </style>
 </head>
@@ -248,7 +255,7 @@
         <!-- Canvas para la animación de ecuaciones y onda de luz de fondo -->
         <canvas id="bannerCanvas"></canvas>
 
-        <!-- Logo de la Universidad -->
+        <!-- Logo de la Universidad (Asegúrate de que tu imagen 'logo.png' tenga fondo transparente PNG) -->
         <img src="logo.png" alt="Logo Universidad" class="university-logo" onerror="this.style.display='none'">
         
         <div class="header-content">
@@ -271,7 +278,7 @@
         <div class="instructions-box">
             <h4>📌 Guía rápida para agregar tus archivos en GitHub:</h4>
             <ul>
-                <li><strong>Logo de la Universidad:</strong> Sube tu imagen en formato JPG nombrada como <code>logo.png</code> en la raíz de tu repositorio.</li>
+                <li><strong>Logo de la Universidad:</strong> Sube tu imagen en formato PNG (con fondo transparente) nombrada como <code>logo.png</code> en la raíz de tu repositorio.</li>
                 <li><strong>Póster del evento:</strong> Sube tu cartel principal nombrado como <code>poster.png</code>.</li>
                 <li><strong>Fotografías:</strong> Sube tus fotos nombrándolas <code>foto1.jpg</code>, <code>foto2.jpg</code> y <code>foto3.jpg</code>.</li>
             </ul>
@@ -434,7 +441,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN GALERÍA DE FOTOS (Comentada temporalmente)
+        <!-- SECCIÓN GALERÍA DE Fotos (Comentada temporalmente)
         <section id="galeria">
             <h2>Galería de Fotos</h2>
             <div class="gallery">
