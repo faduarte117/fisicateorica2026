@@ -6,11 +6,11 @@
     <title>Semana de Física Teórica 2026</title>
     <style>
         :root {
-            --primary: #1a2a3a;
+            --primary: #0f1722; /* Tono azul marino aún más oscuro y profesional */
             --secondary: #0066cc;
             --accent: #e6f2ff;
-            --text: #333333;
-            --bg: #f8f9fa;
+            --text: #e2e8f0;   /* Texto más claro para mejor lectura en fondos oscuros */
+            --bg: #070b10;     /* Fondo general de la página mucho más oscuro */
         }
 
         body {
@@ -23,7 +23,7 @@
             position: relative;
         }
 
-        /* LIENZO DE FONDO GENERAL PARA COLISIÓN, CREACIÓN Y ANIQUILACIÓN */
+        /* LIENZO DE FONDO GENERAL PARA COLISIÓN Y ONDULACIONES DEL CAMPO */
         #particlesCanvas {
             position: fixed;
             top: 0;
@@ -40,7 +40,7 @@
         }
 
         header {
-            background-color: #0b131a;
+            background-color: #05080d;
             color: white;
             text-align: center;
             padding: 3.5rem 1rem;
@@ -75,7 +75,7 @@
             background: transparent;
             padding: 0;
             z-index: 3;
-            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
         }
 
         header h1 {
@@ -118,21 +118,22 @@
         }
 
         section {
-            background: white;
+            background: rgba(15, 23, 34, 0.85); /* Secciones semitransparentes oscuras elegantes */
+            border: 1px solid rgba(0, 102, 204, 0.2);
             padding: 2rem;
             margin-bottom: 2rem;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
         h2 {
-            color: var(--primary);
-            border-bottom: 2px solid var(--accent);
+            color: #60a5fa;
+            border-bottom: 2px solid rgba(0, 102, 204, 0.4);
             padding-bottom: 0.5rem;
         }
 
         h3.day-title {
-            color: var(--secondary);
+            color: #93c5fd;
             margin-top: 1.5rem;
             border-left: 4px solid var(--secondary);
             padding-left: 10px;
@@ -146,11 +147,11 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            border: 1px solid #ddd;
+            border: 1px solid #444;
         }
 
         .instructions-box {
-            background-color: #eef7ff;
+            background-color: rgba(0, 51, 102, 0.3);
             border-left: 5px solid #0066cc;
             padding: 1rem 1.5rem;
             margin-bottom: 2rem;
@@ -160,7 +161,7 @@
 
         .instructions-box h4 {
             margin-top: 0;
-            color: #004080;
+            color: #93c5fd;
         }
 
         table {
@@ -173,32 +174,33 @@
         th, td {
             padding: 10px 12px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         th {
-            background-color: var(--accent);
-            color: var(--primary);
+            background-color: rgba(0, 102, 204, 0.2);
+            color: #ffffff;
         }
 
         .speaker-card {
-            border: 1px solid #e1e1e1;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 1.5rem;
             border-radius: 8px;
             margin-bottom: 1.5rem;
-            background-color: #fafafa;
+            background-color: rgba(11, 19, 26, 0.6);
         }
 
         .speaker-card h3 {
             margin-top: 0;
-            color: var(--secondary);
+            color: #60a5fa;
         }
 
         footer {
-            background-color: var(--primary);
-            color: #cccccc;
+            background-color: #05080d;
+            color: #94a3b8;
             padding: 2rem;
             margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-container {
@@ -223,7 +225,7 @@
         }
 
         .footer-left a {
-            color: #79bcff;
+            color: #60a5fa;
             text-decoration: none;
         }
 
@@ -355,7 +357,7 @@
         </div>
     </footer>
 
-    <!-- SCRIPT DE CREACIÓN, COLISIÓN Y ANIQUILACIÓN DE PARTÍCULAS -->
+    <!-- SCRIPT DE PARTÍCULAS CON ONDULACIONES DE CAMPO EN LA ANICULACIÓN -->
     <script>
         const pCanvas = document.getElementById('particlesCanvas');
         const pCtx = pCanvas.getContext('2d');
@@ -368,18 +370,16 @@
         window.addEventListener('resize', resizePCanvas);
 
         let pairs = [];
+        let ripples = []; // Almacena las ondas de campo cuando colisionan
 
         function createPair() {
-            if (pairs.length < 12) {
-                // Definir un punto de colisión central aleatorio en pantalla
+            if (pairs.length < 10) {
                 let targetX = Math.random() * (pCanvas.width - 200) + 100;
                 let targetY = Math.random() * (pCanvas.height - 200) + 100;
 
-                // Partícula 1 (ej. Electrón - Azul) nace lejos a la izquierda/arriba
-                let x1 = targetX + (Math.random() - 0.5) * 300;
-                let y1 = targetY + (Math.random() - 0.5) * 300;
+                let x1 = targetX + (Math.random() - 0.5) * 350;
+                let y1 = targetY + (Math.random() - 0.5) * 350;
 
-                // Partícula 2 (ej. Positrón - Rosita/Rojo) nace lejos en dirección opuesta
                 let x2 = targetX - (x1 - targetX);
                 let y2 = targetY - (y1 - targetY);
 
@@ -388,13 +388,11 @@
                     x2: x2, y2: y2,
                     targetX: targetX,
                     targetY: targetY,
-                    vx1: (targetX - x1) / 80,
-                    vy1: (targetY - y1) / 80,
-                    vx2: (targetX - x2) / 80,
-                    vy2: (targetY - y2) / 80,
-                    state: 'traveling', // 'traveling', 'annihilating', 'done'
-                    flashRadius: 0,
-                    alpha: 1
+                    vx1: (targetX - x1) / 90,
+                    vy1: (targetY - y1) / 90,
+                    vx2: (targetX - x2) / 90,
+                    vy2: (targetY - y2) / 90,
+                    state: 'traveling'
                 });
             }
         }
@@ -402,48 +400,53 @@
         function animateParticles() {
             pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
 
-            if (Math.random() < 0.08) createPair();
+            if (Math.random() < 0.07) createPair();
 
+            // 1. Dibujar y expandir las ondulaciones del campo (ondas concéntricas)
+            ripples.forEach((rip, rIndex) => {
+                rip.radius += 1.8;
+                rip.alpha -= 0.02;
+
+                pCtx.beginPath();
+                pCtx.arc(rip.x, rip.y, rip.radius, 0, Math.PI * 2);
+                pCtx.strokeStyle = `rgba(0, 180, 255, ${Math.max(rip.alpha, 0)})`;
+                pCtx.lineWidth = 1.2;
+                pCtx.stroke();
+
+                if (rip.alpha <= 0) {
+                    ripples.splice(rIndex, 1);
+                }
+            });
+
+            // 2. Animar pares de partículas y sus trayectorias
             pairs.forEach((p, index) => {
                 if (p.state === 'traveling') {
-                    // Mover ambas partículas hacia el punto de colisión
                     p.x1 += p.vx1;
                     p.y1 += p.vy1;
                     p.x2 += p.vx2;
                     p.y2 += p.vy2;
 
-                    // Dibujar Partícula 1 (Azul)
+                    // Partícula 1 (Materia - Azul brillante)
                     pCtx.beginPath();
-                    pCtx.arc(p.x1, p.y1, 3, 0, Math.PI * 2);
-                    pCtx.fillStyle = 'rgba(0, 150, 255, 0.7)';
+                    pCtx.arc(p.x1, p.y1, 2.5, 0, Math.PI * 2);
+                    pCtx.fillStyle = 'rgba(56, 189, 248, 0.8)';
                     pCtx.fill();
 
-                    // Dibujar Partícula 2 (Rosita/Antipartícula)
+                    // Partícula 2 (Antimateria - Púrpura/Rosa brillante)
                     pCtx.beginPath();
-                    pCtx.arc(p.x2, p.y2, 3, 0, Math.PI * 2);
-                    pCtx.fillStyle = 'rgba(255, 100, 150, 0.7)';
+                    pCtx.arc(p.x2, p.y2, 2.5, 0, Math.PI * 2);
+                    pCtx.fillStyle = 'rgba(244, 114, 182, 0.8)';
                     pCtx.fill();
 
-                    // Detectar si llegaron al punto de colisión (distancia muy corta)
                     let dist = Math.hypot(p.x1 - p.targetX, p.y1 - p.targetY);
                     if (dist < 4) {
-                        p.state = 'annihilating';
+                        p.state = 'done';
+                        // Generar múltiples ondas de campo concéntricas al aniquilarse
+                        ripples.push({ x: p.targetX, y: p.targetY, radius: 5, alpha: 0.6 });
+                        ripples.push({ x: p.targetX, y: p.targetY, radius: 15, alpha: 0.4 });
                     }
-                } 
-                else if (p.state === 'annihilating') {
-                    // Efecto de destello de aniquilación (emisión de energía en onda expansiva)
-                    p.flashRadius += 1.5;
-                    p.alpha -= 0.03;
-
-                    pCtx.beginPath();
-                    pCtx.arc(p.targetX, p.targetY, p.flashRadius, 0, Math.PI * 2);
-                    pCtx.strokeStyle = `rgba(255, 255, 255, ${Math.max(p.alpha, 0)})`;
-                    pCtx.lineWidth = 1.5;
-                    pCtx.stroke();
-
-                    if (p.alpha <= 0) {
-                        pairs.splice(index, 1);
-                    }
+                } else {
+                    pairs.splice(index, 1);
                 }
             });
 
