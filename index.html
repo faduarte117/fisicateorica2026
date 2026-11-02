@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="es 
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Semana de Física Teórica 2026</title>
     <style>
         :root {
-            --primary: #0f1722; /* Tono azul marino aún más oscuro y profesional */
+            --primary: #05090e; /* Azul marino aún más profundo */
             --secondary: #0066cc;
             --accent: #e6f2ff;
-            --text: #e2e8f0;   /* Texto más claro para mejor lectura en fondos oscuros */
-            --bg: #070b10;     /* Fondo general de la página mucho más oscuro */
+            --text: #e2e8f0;   
+            --bg: #030508;      /* Fondo general ultra oscuro para máximo contraste */
         }
 
         body {
@@ -40,7 +40,7 @@
         }
 
         header {
-            background-color: #05080d;
+            background-color: #020407;
             color: white;
             text-align: center;
             padding: 3.5rem 1rem;
@@ -118,12 +118,12 @@
         }
 
         section {
-            background: rgba(15, 23, 34, 0.85); /* Secciones semitransparentes oscuras elegantes */
-            border: 1px solid rgba(0, 102, 204, 0.2);
+            background: rgba(5, 9, 14, 0.92); /* Secciones ligeramente más opacas para aislar el contenido */
+            border: 1px solid rgba(0, 102, 204, 0.25);
             padding: 2rem;
             margin-bottom: 2rem;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.7);
         }
 
         h2 {
@@ -151,7 +151,7 @@
         }
 
         .instructions-box {
-            background-color: rgba(0, 51, 102, 0.3);
+            background-color: rgba(0, 40, 80, 0.4);
             border-left: 5px solid #0066cc;
             padding: 1rem 1.5rem;
             margin-bottom: 2rem;
@@ -178,7 +178,7 @@
         }
 
         th {
-            background-color: rgba(0, 102, 204, 0.2);
+            background-color: rgba(0, 102, 204, 0.25);
             color: #ffffff;
         }
 
@@ -187,7 +187,7 @@
             padding: 1.5rem;
             border-radius: 8px;
             margin-bottom: 1.5rem;
-            background-color: rgba(11, 19, 26, 0.6);
+            background-color: rgba(5, 9, 14, 0.8);
         }
 
         .speaker-card h3 {
@@ -196,7 +196,7 @@
         }
 
         footer {
-            background-color: #05080d;
+            background-color: #020407;
             color: #94a3b8;
             padding: 2rem;
             margin-top: 3rem;
@@ -373,7 +373,7 @@
         let ripples = []; // Almacena las ondas de campo cuando colisionan
 
         function createPair() {
-            if (pairs.length < 10) {
+            if (pairs.length < 12) {
                 let targetX = Math.random() * (pCanvas.width - 200) + 100;
                 let targetY = Math.random() * (pCanvas.height - 200) + 100;
 
@@ -400,17 +400,18 @@
         function animateParticles() {
             pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
 
-            if (Math.random() < 0.07) createPair();
+            if (Math.random() < 0.08) createPair();
 
-            // 1. Dibujar y expandir las ondulaciones del campo (ondas concéntricas)
+            // 1. Dibujar y expandir las ondulaciones del campo (ondas concéntricas con mayor brillo)
             ripples.forEach((rip, rIndex) => {
-                rip.radius += 1.8;
-                rip.alpha -= 0.02;
+                rip.radius += 2.0;
+                rip.alpha -= 0.015;
 
                 pCtx.beginPath();
                 pCtx.arc(rip.x, rip.y, rip.radius, 0, Math.PI * 2);
-                pCtx.strokeStyle = `rgba(0, 180, 255, ${Math.max(rip.alpha, 0)})`;
-                pCtx.lineWidth = 1.2;
+                // Aumentamos la saturación e intensidad del brillo azulado
+                pCtx.strokeStyle = `rgba(30, 160, 255, ${Math.max(rip.alpha, 0)})`;
+                pCtx.lineWidth = 1.5;
                 pCtx.stroke();
 
                 if (rip.alpha <= 0) {
@@ -426,24 +427,25 @@
                     p.x2 += p.vx2;
                     p.y2 += p.vy2;
 
-                    // Partícula 1 (Materia - Azul brillante)
+                    // Partícula 1 (Materia - Azul más vívido)
                     pCtx.beginPath();
-                    pCtx.arc(p.x1, p.y1, 2.5, 0, Math.PI * 2);
-                    pCtx.fillStyle = 'rgba(56, 189, 248, 0.8)';
+                    pCtx.arc(p.x1, p.y1, 3, 0, Math.PI * 2);
+                    pCtx.fillStyle = 'rgba(56, 189, 248, 0.95)';
                     pCtx.fill();
 
-                    // Partícula 2 (Antimateria - Púrpura/Rosa brillante)
+                    // Partícula 2 (Antimateria - Púrpura/Rosa más vívido)
                     pCtx.beginPath();
-                    pCtx.arc(p.x2, p.y2, 2.5, 0, Math.PI * 2);
-                    pCtx.fillStyle = 'rgba(244, 114, 182, 0.8)';
+                    pCtx.arc(p.x2, p.y2, 3, 0, Math.PI * 2);
+                    pCtx.fillStyle = 'rgba(244, 114, 182, 0.95)';
                     pCtx.fill();
 
                     let dist = Math.hypot(p.x1 - p.targetX, p.y1 - p.targetY);
                     if (dist < 4) {
                         p.state = 'done';
-                        // Generar múltiples ondas de campo concéntricas al aniquilarse
-                        ripples.push({ x: p.targetX, y: p.targetY, radius: 5, alpha: 0.6 });
-                        ripples.push({ x: p.targetX, y: p.targetY, radius: 15, alpha: 0.4 });
+                        // Generar múltiples ondas de campo concéntricas más marcadas al aniquilarse
+                        ripples.push({ x: p.targetX, y: p.targetY, radius: 4, alpha: 0.8 });
+                        ripples.push({ x: p.targetX, y: p.targetY, radius: 16, alpha: 0.55 });
+                        ripples.push({ x: p.targetX, y: p.targetY, radius: 30, alpha: 0.3 });
                     }
                 } else {
                     pairs.splice(index, 1);
@@ -488,7 +490,7 @@
         function animateBanner() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.font = '15px "Courier New", monospace';
-            ctx.fillStyle = 'rgba(100, 180, 255, 0.35)';
+            ctx.fillStyle = 'rgba(100, 180, 255, 0.45)';
             eqParticles.forEach(p => {
                 ctx.fillText(p.text, p.x, p.y);
                 p.x += p.speedX; p.y += p.speedY;
