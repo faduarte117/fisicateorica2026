@@ -339,7 +339,7 @@
                 <tbody>
                     <tr>
                         <td>16:00 - 16:40</td>
-                        <td>Mensaje para las y los estudiantes de Física</td>
+                        <td>Mensaje para las estudiantes de Física</td>
                         <td>Dra. Ana Maria Cetto Kramis</td>
                        
                     </tr>
@@ -384,9 +384,15 @@ El espíritu crítico de Hestenes representa un programa de investigación activ
             <div class="speaker-card">
                 <h3> Dr. José Daniel Castro Cisneros</h3>
                 <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
-                <p><strong>Título de la plática:</strong>Cómo la mecánica clásica predijo a Neptuno </p>
+                <p><strong>Título de la plática:</strong>Cómo la mecánica clásica predijo a Neptuno</p>
                 <p><strong>Resumen:</strong> El descubrimiento de Neptuno en 1846 es reconocido como uno de los grandes ejemplos del poder predictivo de la Física Matemática. La acumulación de décadas de observaciones astronómicas mostró discrepancias entre la posición de Urano y la predicha al tomar en cuenta las perturbaciones debidas a los cuerpos conocidos del Sistema Solar. Este conflicto llevó a conjeturar la existencia de un cuerpo en la región exterior del Sistema Solar, y personajes de la época como John Couch Adams y Urbain Le Verrier lograron inferir las propiedades orbitales de lo que hoy conocemos como el planeta Neptuno.
 En esta charla revisaremos el problema desde una perspectiva moderna. Partiendo de las ecuaciones de movimiento y de la teoría de perturbaciones orbitales, se analizará cómo la presencia de un planeta exterior produce desviaciones medibles en la órbita de Urano. Además de su valor histórico, este ejemplo permite introducir ideas que continúan siendo fundamentales en la Física moderna, como el uso de métodos perturbativos, el planteamiento de problemas inversos y la detección indirecta de objetos físicos.</p>
+            </div>
+                <div class="speaker-card">
+                <h3> Dra. Ana Maria Cetto Kramis</h3>
+                <p><strong>Institución:</strong> Instituto de Física, UNAM</p>
+                <p><strong>Título de la plática:</strong> Mensaje a las estudiantes de Física </p>
+                <p><strong>Resumen:</strong> Mesa</p>
             </div>
         </section>
 
@@ -420,18 +426,18 @@ En esta charla revisaremos el problema desde una perspectiva moderna. Partiendo 
         window.addEventListener('resize', resizeCanvas);
 
         // Fórmulas teóricas emblemáticas para flotar de fondo
-       const equations = [
-    "iℏ (∂/∂t)|ψ⟩ = H|ψ⟩",                   // Ecuación de Schrödinger
-    "(iγ^μ ∂_μ - m)ψ = 0",                  // Ecuación de Dirac
-    "R_{μν} - ½g_{μν}R + Λg_{μν} = (8πG/c⁴)T_{μν}", // Ecuación del campo de Einstein
-    "∇ × E = -∂B/∂t",                       // Ley de Faraday (Maxwell)
-    "∇ · D = ρ",                            // Ley de Gauss
-    "S = k_B ln Ω",                         // Entropía de Boltzmann
-    "E = mc²",                              // Equivalencia masa-energía
-    "ρ(∂u/∂t + u · ∇u) = -∇p + μ∇²u + f",   // Ecuación de Navier-Stokes
-    "L = ψ̄(iγ^μ D_μ - m)ψ - ¼ F_{μν}F^{μν}", // Lagrangiano de QED
-    "□A^μ = μ_0 J^μ",                       // Electrodinámica cuántica (Ecuación de onda de potencial)
-    "[x, p] = iℏ"                           // Relación de conmutación canónica
+     const equations = [
+    "iℏ (∂/∂t)|ψ⟩ = H|ψ⟩",                       // Ecuación de Schrödinger
+    "(iγᵐ ∂ₘ - m)ψ = 0",                        // Ecuación de Dirac
+    "Rₘᵥ - ½gₘᵥR + Λgₘᵥ = (8πG/c⁴)Tₘᵥ",          // Ecuación del campo de Einstein
+    "∇ × E = -∂B/∂t",                           // Ley de Faraday (Maxwell)
+    "∇ · D = ρ",                                // Ley de Gauss
+    "S = k_B ln Ω",                             // Entropía de Boltzmann
+    "E = mc²",                                  // Equivalencia masa-energía
+    "ρ(∂u/∂t + u · ∇u) = -∇p + μ∇²u + f",       // Ecuación de Navier-Stokes
+    "ℒ = ψ̄(iγᵐ Dₘ - m)ψ - ¼ FₘᵥFᵐᵛ",            // Lagrangiano de QED
+    "□Aᵐ = μ₀ Jᵐ",                              // Electrodinámica cuántica (Ecuación de onda)
+    "[x, p] = iℏ"                               // Relación de conmutación canónica
 ];
 
         // Crear partículas/ecuaciones flotantes
