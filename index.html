@@ -6,11 +6,11 @@
     <title>Semana de Física Teórica 2026</title>
     <style>
         :root {
-            --primary: #05090e; /* Azul marino aún más profundo */
+            --primary: #05090e; 
             --secondary: #0066cc;
             --accent: #e6f2ff;
             --text: #e2e8f0;   
-            --bg: #030508;      /* Fondo general ultra oscuro para máximo contraste */
+            --bg: #030508;      
         }
 
         body {
@@ -32,6 +32,27 @@
             height: 100%;
             z-index: 0;
             pointer-events: none;
+        }
+
+        /* BOTÓN PARA ACTIVAR EL AUDIO (Por políticas del navegador) */
+        .audio-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(0, 102, 204, 0.85);
+            color: white;
+            border: 1px solid #60a5fa;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            transition: background 0.3s;
+        }
+
+        .audio-control:hover {
+            background: rgba(0, 102, 204, 1);
         }
 
         header, nav, .container, footer {
@@ -118,7 +139,7 @@
         }
 
         section {
-            background: rgba(5, 9, 14, 0.92); /* Secciones ligeramente más opacas para aislar el contenido */
+            background: rgba(5, 9, 14, 0.92);
             border: 1px solid rgba(0, 102, 204, 0.25);
             padding: 2rem;
             margin-bottom: 2rem;
@@ -253,6 +274,9 @@
 <body>
 
     <canvas id="particlesCanvas"></canvas>
+    
+    <!-- Botón para habilitar audio (requisito de los navegadores modernos) -->
+    <button id="audioToggle" class="audio-control">🔇 Activar Sonido Cuántico</button>
 
     <header>
         <canvas id="bannerCanvas"></canvas>
@@ -357,7 +381,7 @@
         </div>
     </footer>
 
-    <!-- SCRIPT DE PARTÍCULAS CON ONDULACIONES DE CAMPO EN LA ANICULACIÓN -->
+    <!-- SCRIPT DE PARTÍCULAS, ONDAS Y SONIDO PROCEDURAL -->
     <script>
         const pCanvas = document.getElementById('particlesCanvas');
         const pCtx = pCanvas.getContext('2d');
@@ -369,11 +393,71 @@
         resizePCanvas();
         window.addEventListener('resize', resizePCanvas);
 
+        // CONFIGURACIÓN DE WEB AUDIO API
+        let audioCtx = null;
+        let soundEnabled = false;
+        const audioBtn = document.getElementById('audioToggle');
+
+        audioBtn.addEventListener('click', () => {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            soundEnabled = !soundEnabled;
+            audioBtn.textContent = soundEnabled ? "🔊 Sonido Activado" : "🔇 Activar Sonido Cuántico";
+        });
+
+        // Sonido de Creación de Par (Tono sutil ascendente)
+        function playCreationSound() {
+            if (!soundEnabled || !audioCtx) return;
+            try {
+                let osc = audioCtx.createOscillator();
+                let gain = audioCtx.createGain();
+                
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(300, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.15);
+
+                gain.gain.setValueAtTime(0.03, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.15);
+            } catch (e) {}
+        }
+
+        // Sonido de Aniquilación / Colisión (Pequeño pulso de energía profundo)
+        function playAnnihilationSound() {
+            if (!soundEnabled || !audioCtx) return;
+            try {
+                let osc = audioCtx.createOscillator();
+                let gain = audioCtx.createGain();
+
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.3);
+
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.3);
+            } catch (e) {}
+        }
+
         let pairs = [];
-        let ripples = []; // Almacena las ondas de campo cuando colisionan
+        let ripples = [];
 
         function createPair() {
-            if (pairs.length < 12) {
+            if (pairs.length < 10) {
                 let targetX = Math.random() * (pCanvas.width - 200) + 100;
                 let targetY = Math.random() * (pCanvas.height - 200) + 100;
 
@@ -394,22 +478,22 @@
                     vy2: (targetY - y2) / 90,
                     state: 'traveling'
                 });
+
+                playCreationSound(); // Reproduce sonido al nacer el par materia-antimateria
             }
         }
 
         function animateParticles() {
             pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
 
-            if (Math.random() < 0.08) createPair();
+            if (Math.random() < 0.06) createPair();
 
-            // 1. Dibujar y expandir las ondulaciones del campo (ondas concéntricas con mayor brillo)
             ripples.forEach((rip, rIndex) => {
                 rip.radius += 2.0;
                 rip.alpha -= 0.015;
 
                 pCtx.beginPath();
                 pCtx.arc(rip.x, rip.y, rip.radius, 0, Math.PI * 2);
-                // Aumentamos la saturación e intensidad del brillo azulado
                 pCtx.strokeStyle = `rgba(30, 160, 255, ${Math.max(rip.alpha, 0)})`;
                 pCtx.lineWidth = 1.5;
                 pCtx.stroke();
@@ -419,7 +503,6 @@
                 }
             });
 
-            // 2. Animar pares de partículas y sus trayectorias
             pairs.forEach((p, index) => {
                 if (p.state === 'traveling') {
                     p.x1 += p.vx1;
@@ -427,13 +510,11 @@
                     p.x2 += p.vx2;
                     p.y2 += p.vy2;
 
-                    // Partícula 1 (Materia - Azul más vívido)
                     pCtx.beginPath();
                     pCtx.arc(p.x1, p.y1, 3, 0, Math.PI * 2);
                     pCtx.fillStyle = 'rgba(56, 189, 248, 0.95)';
                     pCtx.fill();
 
-                    // Partícula 2 (Antimateria - Púrpura/Rosa más vívido)
                     pCtx.beginPath();
                     pCtx.arc(p.x2, p.y2, 3, 0, Math.PI * 2);
                     pCtx.fillStyle = 'rgba(244, 114, 182, 0.95)';
@@ -442,10 +523,11 @@
                     let dist = Math.hypot(p.x1 - p.targetX, p.y1 - p.targetY);
                     if (dist < 4) {
                         p.state = 'done';
-                        // Generar múltiples ondas de campo concéntricas más marcadas al aniquilarse
                         ripples.push({ x: p.targetX, y: p.targetY, radius: 4, alpha: 0.8 });
                         ripples.push({ x: p.targetX, y: p.targetY, radius: 16, alpha: 0.55 });
                         ripples.push({ x: p.targetX, y: p.targetY, radius: 30, alpha: 0.3 });
+
+                        playAnnihilationSound(); // Reproduce sonido al colisionar/aniquilarse
                     }
                 } else {
                     pairs.splice(index, 1);
@@ -458,7 +540,7 @@
         animateParticles();
     </script>
 
-    <!-- SCRIPT DEL BANNER (Ondas y Ecuaciones) -->
+    <!-- SCRIPT DEL BANNER -->
     <script>
         const canvas = document.getElementById('bannerCanvas');
         const ctx = canvas.getContext('2d');
@@ -486,7 +568,6 @@
             });
         }
 
-        let angle = 0;
         function animateBanner() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.font = '15px "Courier New", monospace';
@@ -497,7 +578,6 @@
                 if (p.x < 0 || p.x > canvas.width - 150) p.speedX *= -1;
                 if (p.y < 20 || p.y > canvas.height - 10) p.speedY *= -1;
             });
-            angle += 0.04;
             requestAnimationFrame(animateBanner);
         }
         animateBanner();
