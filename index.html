@@ -249,63 +249,16 @@
             .footer-right {
                 text-align: center;
             }
-     
-header {
-            background-color: #020407;
-            color: white;
-            text-align: center;
-            padding: 4.5rem 1rem 3rem 1rem;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 4px solid var(--secondary);
-            z-index: 2;
+            .university-logo {
+                max-height: 110px;
+                top: 15px;
+                left: 15px;
+            }
+            .second-logo {
+             max-height: 110px;
+                top: 60px;
+                left: 60px;
         }
-
-        /* La imagen grande (logosft26.png) ahora actúa como fondo sutil detrás de todo */
-        .header-bg-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            opacity: 0.20; /* Transparencia para que no estorbe al texto */
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        #bannerCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-            opacity: 0.35;
-            pointer-events: none;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 3;
-            margin-top: 1.5rem; /* Baja la información para que quede abajo */
-        }
-
-        /* Logo 1 (Universidad) flotando encima en la esquina superior izquierda */
-        .university-logo {
-            position: absolute;
-            top: 20px;
-            left: 30px;
-            max-height: 85px;
-            width: auto;
-            background: transparent;
-            padding: 0;
-            z-index: 4;
-            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
-        }
-
-            
     </style>
 </head>
 <body>
@@ -316,25 +269,21 @@ header {
     <button id="audioToggle" class="audio-control">🔇 Activar Sonido Cuántico</button>
 
 <header>
-  <header>
-   <header>
-    <!-- Imagen grande de fondo (logosft26.png) -->
-    <img src="logosft26.png" alt="Fondo SFT 2026" class="header-bg-image" onerror="this.style.display='none'">
-
-    <!-- Lienzo de ecuaciones animadas -->
     <canvas id="bannerCanvas"></canvas>
     
-    <!-- Logo 1 (Universidad) encima en la esquina -->
+    <!-- Logo izquierdo (existente) -->
     <img src="unilogo.png" alt="Logo Universidad" class="university-logo" onerror="this.style.display='none'">
     
-    <!-- Información de fechas, academia y título abajo -->
+    <!-- Contenido central -->
     <div class="header-content">
         <h1>Semana de Física Teórica 2026</h1>
         <p>Academia de Física Teórica, Departamento de Física</p>
         <p><strong>Fecha:</strong> 25, 26 y 27 de Noviembre de 2026 | <strong>Horario:</strong> 16:00 a 20:00 hrs</p>
     </div>
-</header>
-</header>
+    
+    <!-- Logo derecho (nuevo) -->
+    <img src="unilogo.png" alt="Segundo Logo" class="second-logo" onerror="this.style.display='none'">
+   
 </header>
     <nav>
         <a href="#poster">Póster</a>
