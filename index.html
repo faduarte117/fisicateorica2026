@@ -258,34 +258,18 @@
             position: absolute;
             top: 25px;
             right: 30px;
-            max-height: 60px; /* <--- Ajusta este valor para hacerlo más chico o grande */
+            max-height: 80px; /* <--- Controla qué tan chico se ve */
             width: auto;
             background: transparent;
             padding: 0;
             z-index: 3;
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
+            border-radius: 4px; /* Opcional si quieres bordes redondeados */
         }
 
-        @media (max-width: 768px) {
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-            .footer-right {
-                text-align: center;
-            }
-            .university-logo {
-                max-height: 60px;
-                top: 15px;
-                left: 15px;
-            }
-            .second-logo {
-                max-height: 45px; /* <--- Tamaño para celulares */
-                top: 15px;
-                right: 15px;
-            }
-        }
+
+
+            
         }
     </style>
 </head>
@@ -297,21 +281,22 @@
     <button id="audioToggle" class="audio-control">🔇 Activar Sonido Cuántico</button>
 
 <header>
+  <header>
     <canvas id="bannerCanvas"></canvas>
     
-    <!-- Logo izquierdo (existente) -->
+    <!-- Logo izquierdo (Universidad) -->
     <img src="unilogo.png" alt="Logo Universidad" class="university-logo" onerror="this.style.display='none'">
     
-    <!-- Contenido central -->
+    <!-- Contenido central (Título y fechas) -->
     <div class="header-content">
         <h1>Semana de Física Teórica 2026</h1>
         <p>Academia de Física Teórica, Departamento de Física</p>
         <p><strong>Fecha:</strong> 25, 26 y 27 de Noviembre de 2026 | <strong>Horario:</strong> 16:00 a 20:00 hrs</p>
     </div>
     
-    <!-- Logo derecho (nuevo) -->
+    <!-- Logo derecho (SFT 2026 / Cartel pequeño en la esquina) -->
     <img src="logosft26.jpg" alt="Segundo Logo" class="second-logo" onerror="this.style.display='none'">
-   
+</header>
 </header>
     <nav>
         <a href="#poster">Póster</a>
