@@ -64,11 +64,25 @@
             background-color: #020407;
             color: white;
             text-align: center;
-            padding: 3.5rem 1rem;
+            padding: 4.5rem 1rem 3rem 1rem;
             position: relative;
             overflow: hidden;
             border-bottom: 4px solid var(--secondary);
             z-index: 2;
+        }
+
+        /* Imagen grande (logosft26.png) como fondo sutil */
+        .header-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.15;
+            z-index: 1;
+            pointer-events: none;
         }
 
         #bannerCanvas {
@@ -77,25 +91,39 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            z-index: 2;
             opacity: 0.35;
             pointer-events: none;
         }
 
         .header-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
+            margin-top: 1rem;
         }
 
+        /* Logo izquierdo (UNISON) */
         .university-logo {
             position: absolute;
             top: 25px;
             left: 30px;
-            max-height: 110px;
+            max-height: 90px;
             width: auto;
             background: transparent;
             padding: 0;
-            z-index: 3;
+            z-index: 4;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
+        }
+
+        /* Logo derecho (SFT 2026 pequeño y elegante en la esquina) */
+        .second-logo {
+            position: absolute;
+            right: 30px;
+            top: 25px;
+            max-height: 75px;
+            width: auto;
+            background: transparent;
+            z-index: 4;
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
         }
 
@@ -250,14 +278,15 @@
                 text-align: center;
             }
             .university-logo {
-                max-height: 110px;
+                max-height: 60px;
                 top: 15px;
                 left: 15px;
             }
             .second-logo {
-             max-height: 110px;
-                top: 60px;
-                left: 120px;
+                max-height: 50px;
+                top: 15px;
+                right: 15px;
+            }
         }
     </style>
 </head>
@@ -269,458 +298,345 @@
     <button id="audioToggle" class="audio-control">🔇 Activar Sonido Cuántico</button>
 
 <header>
+    <!-- Imagen de fondo sutil basada en el logo/cartel -->
+    <img src="logosft26.png" alt="Fondo SFT 2026" class="header-bg-image" onerror="this.style.display='none'">
+    
     <canvas id="bannerCanvas"></canvas>
     
-    <!-- Logo izquierdo (existente) -->
+    <!-- Logo izquierdo (UNISON) -->
     <img src="unilogo.png" alt="Logo Universidad" class="university-logo" onerror="this.style.display='none'">
     
-    <!-- Contenido central -->
+    <!-- Contenido central y fechas abajo -->
     <div class="header-content">
         <h1>Semana de Física Teórica 2026</h1>
         <p>Academia de Física Teórica, Departamento de Física</p>
         <p><strong>Fecha:</strong> 25, 26 y 27 de Noviembre de 2026 | <strong>Horario:</strong> 16:00 a 20:00 hrs</p>
     </div>
     
-    <!-- Logo derecho (nuevo) -->
-    <img src="unilogo.png" alt="Segundo Logo" class="second-logo" onerror="this.style.display='none'">
-   
+    <!-- Logo derecho (SFT 2026 en la esquina superior derecha) -->
+    <img src="logosft26.png" alt="Segundo Logo" class="second-logo" onerror="this.style.display='none'">
 </header>
-    <nav>
-        <a href="#poster">Póster</a>
-        <a href="#programa">Programa</a>
-        <a href="#ponentes">Ponentes</a>
-        <a href="#galeria">Galería</a>
-    </nav>
 
-    <div class="container">
-        <section id="poster">
-            <h2>Cartel Oficial</h2>
-            <div class="poster-container">
-                <img src="poster.png" alt="Póster de la Semana de Física Teórica 2026" class="poster-img">
-            </div>
-        </section>
+<nav>
+    <a href="#poster">Póster</a>
+    <a href="#programa">Programa</a>
+    <a href="#ponentes">Ponentes</a>
+</nav>
 
-        <section id="programa">
-            <h2>Programa de Actividades</h2>
-
-            <!-- MIÉRCOLES 25 -->
-            <h3 class="day-title">Miércoles 25 de Noviembre</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Hora</th>
-                        <th>Actividad / Plática</th>
-                        <th>Ponente</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>16:00 - 16:20</td>
-                        <td>Inauguración y Bienvenida</td>
-                        <td>Comité Organizador</td>
-                    </tr>
-                    <tr>
-                        <td>16:30 - 17:30</td>
-                        <td>La Ecuación de Dirac con Álgebra Geométrica (el espín, el reloj de de Broglie y el zitterbewegung en una visión unificada)</td>
-                        <td>Dr. Arnulfo Castellanos Moreno</td>
-                    </tr>
-                    <tr>
-                        <td>17:30 - 17:45</td>
-                        <td>Receso / Café</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>17:45 - 18:45</td>
-                        <td>Estudio de cristales líquidos nemáticos</td>
-                        <td>Dr. Luis Patricio Ramirez Rodríguez</td>
-                    </tr>
-                    <tr>
-                        <td>18:45 - 19:20</td>
-                        <td>Coeficientes de transporte termoeléctrico exactos y figura de mérito a partir de una serie infinita de Mott con funciones zeta para grafeno</td>
-                        <td>Est. Luis Daniel Villa Cortés</td>
-                     <tr>
-                        <td>19:20 - 20:00</td>
-                        <td> Deducción de la Ecuación de Lorentz en el Espaciotiempo de Minkowski a través del formalismo de tétradas</td>
-                        <td>Est. José Manuel Zavala Vásquez</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- JUEVES 26 -->
-            <h3 class="day-title">Jueves 26 de Noviembre</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Hora</th>
-                        <th>Actividad / Plática</th>
-                        <th>Ponente</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>16:00 - 17:00</td>
-                        <td>Una mirada al Cosmos a través del Hielo: Francis Halzen, IceCube y la Nueva Frontera de la Física Teórica</td>
-                        <td>Dr. León Manuel García de la Vega</td>
-                    </tr>
-                    <tr>
-                        <td>17:00 - 17:55</td>
-                        <td>El origen (dinámico) de la masa</td>
-                        <td>Dr. Jesús Javier Cobos Martínez</td>
-                    </tr>
-                    <tr>
-                        <td>18:00 - 18:55</td>
-                        <td>Receso / Café</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>18:55 - 19:55</td>
-                        <td>Introducción a los conceptos de Plasmónica</td>
-                        <td>Dr. Alejandro Castellanos Jaramillo</td>
-                    </tr>
-                    <tr>
-                        <td>19:55 - 20:00</td>
-                        <td>Violación espontánea de la simetría de carga paridad en una extensión del modelo estándar de la física de partículas</td>
-                        <td>M.C Javier Montaño Peraza</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- VIERNES 27 -->
-            <h3 class="day-title">Viernes 27 de Noviembre</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Hora</th>
-                        <th>Actividad / Plática</th>
-                        <th>Ponente</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>16:00 - 16:20</td>
-                        <td>Mensaje de la Dra. Ana María Cetto para las jóvenes y los jóvenes que estudian ciencia (Plática Virtual)</td>
-                        <td>Dra. Ana Maria Cetto Kramis</td>
-                    </tr>
-                    <tr>
-                        <td>16:30 - 17:00</td>
-                        <td>Plática de Estudiante</td>
-                        <td>Est. 2</td>
-                    </tr>
-                          <tr>
-                        <td>17:00 - 18:45</td>
-                        <td>Sesión de Posters</td>
-                        <td>Estudiantes participantes</td>
-                    </tr>
-                    <tr>
-                        <td>18:50 - 19:50</td>
-                        <td>Cómo la mecánica clásica predijo a Neptuno</td>
-                        <td>Dr. Daniel Castro Cisneros</td>
-                    </tr>
-                    <tr>
-                        <td>19:50 - 20:00</td>
-                        <td>Clausura Oficial</td>
-                        <td>Comité Organizador</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section id="ponentes">
-            <h2>Ponentes y Resúmenes</h2>
-            
-            <div class="speaker-card">
-                <h3>Dr. Arnulfo Castellanos Moreno</h3>
-                <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
-                <p><strong>Título de la plática:</strong> La Ecuación de Dirac con Álgebra Geométrica (el espín, el reloj de de Broglie y el zitterbewegung en una visión unificada)</p>
-                <p><strong>Resumen:</strong> El Álgebra Geométrica (AG) es un formalismo matemático que permite describir toda la física en un solo lenguaje y contiene: los vectores, matrices, espinores y tensores. Junto con el cálculo geométrico es un marco matemático más potente que contiene a la variable compleja y al cálculo de formas como casos particulares.
-El AG permite escribir la ecuación de Dirac sin usar matrices y facilita una descripción basada en números reales con vectores en el espacio tiempo de Minkowski. Permite reinterpretar su solución con un significado geométrico en el que el electrón sí tiene trayectoria y ésta es de tal forma que se puede recuperar la visión de de Broglie sobre la existencia de un movimiento periódico interno en la partícula. Allí mismo se logra explicar en qué consisten el espín y el zitterbewegung.
-El espíritu crítico de Hestenes representa un programa de investigación activo y una lente interpretativa poderosa. La interpretación del zitterbewegung como una trayectoria real y su extensión a la teoría cuántica de campos, el entrelazamiento, etc. son objeto de debate en la actualidad. No implica que la mecánica cuántica estándar está mal, significa que la AG nos ofrece una intuición física alternativa muy fértil que nos invita a seguir explorando.</p>
-            </div>
-
-            <div class="speaker-card">
-                <h3>Dr. Luis Patricio Ramirez Rodríguez</h3>
-                <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
-                <p><strong>Título de la plática:</strong> Estudio de cristales líquidos nemáticos</p>
-                <p><strong>Resumen:</strong> En la presente platica se describirá la propagación de pulsos en una guía de onda cilíndrica cuyo revestimiento es un cristal líquido de tipo nemático. El vector director nemático a considerar es de la forma 𝑛̂=𝑠𝑒𝑛𝜃𝑟̂+𝑐𝑜𝑠𝜃𝑧̂ y, la polarización del paquete de onda es TM. Al realizar el análisis del presente sistema aparece la ecuación de Schrodinger no-lineal para la amplitud del paquete de ondas de polarización TM.</p>
-            </div>
-            
-    
-
-            
-            <div class="speaker-card">
-                <h3>Dr. León Manuel Garcia de la Vega</h3>
-                <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
-                <p><strong>Título de la plática:</strong> Una mirada al Cosmos a través del Hielo: Francis Halzen, IceCube y la Nueva Frontera de la Física Teórica</p>
-                <p><strong>Resumen:</strong> En octubre de 2026, la Real Academia de las Ciencias de Suecia reconoció con el Premio Nobel de Física a Francis Halzen por su visión pionera al concebir y liderar el Observatorio de Neutrinos IceCube en el Polo Sur, transformando un kilómetro cúbico de hielo antártico en el telescopio de partículas más grande del planeta. Mas allá de ser un hito de la física experimental, IceCube nació de las inquietudes de un físico teórico y fenomenólogo decidido a someter el Modelo Estándar y el Universo extremo a pruebas inalcanzables para los aceleradores terrestres.
-Esta charla recorre el desarrollo de IceCube y profundiza en su impacto transformador en la física teórica: desde la confirmación de la resonancia de Glashow a 6.3 PeV y la cartografía de la interacción bariónica mediante neutrinos de ultra-alta energía, hasta las restricciones severas a la violación de la invariancia de Lorentz (LIV), las oscilaciones a distancias cosmológicas y la apertura de la astronomía multimensajero junto a las ondas gravitacionales y los rayos gamma.</p>
-            </div>
-
-            <div class="speaker-card">
-                <h3>Dr. Jesús Javier Cobos Martínez</h3>
-                <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
-                <p><strong>Título de la plática:</strong> El origen (dinámico) de la masa</p>
-                <p><strong>Resumen:</strong> En esta plática se presentará un mecanismo de generación de masa en el Universo, complementario al mecanismo Higgs, que es poco conocido y sin embargo es responsable del 98% de la masa del Universo visible. Este mecanismo se conoce técnicamente
-como rompimiento dinámico de la simetría quiral y su origen está en las interacciones fuertes, una de las cuatro interacciones fundamentales en el Universo. </p>
-            </div>
-
-
-            
-
-            <div class="speaker-card">
-                <h3>Dr. Alejandro Castellanos Jaramillo</h3>
-                <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
-                <p><strong>Título de la plática:</strong> Introducción a los conceptos de Plasmónica</p>
-                <p><strong>Resumen:</strong> Introducción a la interacción de la luz con los electrones libres en nanoestructuras metálicas y sus aplicaciones fundamentales.</p>
-            </div>
-
-            <div class="speaker-card">
-                <h3>M.C Javier Montaño Peraza</h3>
-                <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
-                <p><strong>Título de la plática:</strong> Violación espontánea de la simetría de carga paridad en una extensión del modelo estándar de la física de partículas</p>
-                <p><strong>Resumen:</strong> Estudio analítico de los mecanismos de violación de CP más allá del modelo estándar para comprender la asimetría materia-antimateria en el universo.</p>
-            </div>
-            
-            <div class="speaker-card">
-                <h3>Dra. Ana María Cetto Kramis</h3>
-                <p><strong>Institución:</strong> Instituto de Física, UNAM</p>
-                <p><strong>Título de la plática:</strong> Mensaje de la Dra. Ana María Cetto para las jóvenes y los jóvenes que estudian ciencia</p>
-                <p><strong>Resumen:</strong> Conferencia magistral orientada a inspirar y guiar a las nuevas generaciones en el camino de la investigación científica.</p>
-            </div>
-           
-             <div class="speaker-card">
-                <h3>Dr. José Daniel Castro Cisneros</h3>
-                <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
-                <p><strong>Título de la plática:</strong> Cómo la mecánica clásica predijo a Neptuno</p>
-                <p><strong>Resumen:</strong> El descubrimiento de Neptuno en 1846 es reconocido como uno de los grandes ejemplos del poder predictivo de la Física Matemática. La acumulación de décadas de observaciones astronómicas mostró discrepancias entre la posición de Urano y la predicha al tomar en cuenta las perturbaciones debidas a los cuerpos conocidos del Sistema Solar. Este conflicto llevó a conjeturar la existencia de un cuerpo en la región exterior del Sistema Solar, y personajes de la época como John Couch Adams y Urbain Le Verrier lograron inferir las propiedades orbitales de lo que hoy conocemos como el planeta Neptuno.
-En esta charla revisaremos el problema desde una perspectiva moderna. Partiendo de las ecuaciones de movimiento y de la teoría de perturbaciones orbitales, se analizará cómo la presencia de un planeta exterior produce desviaciones medibles en la órbita de Urano. Además de su valor histórico, este ejemplo permite introducir ideas que continúan siendo fundamentales en la Física moderna, como el uso de métodos perturbativos, el planteamiento de problemas inversos y la detección indirecta de objetos físicos.</p>
-            </div>
-             <div class="speaker-card">
-                <h3>Estudiante. Luis Daniel Villa Cortés</h3>
-                <p><strong>Institución:</strong> Programa de Licenciatura en Física, Departamento de Física, UNISON </p>
-                <p><strong>Título de la plática:</strong> Coeficientes de transporte termoeléctrico exactos y figura de mérito a partir de una serie infinita de Mott con funciones zeta para grafeno</p>
-                <p><strong>Resumen:</strong>  La fórmula de Mott estándar pierde precisión cuando la energía térmica no es mucho menor que la energía de Fermi. En esta plática se presenta una extensión de la aproximación de Mott a todos los órdenes, basada en una serie de funciones zeta de Riemann, que termina tras un número finito de términos cuando la función de transporte es un polinomio y da así resultados exactos dentro del modelo. Con un modelo de conductividad cuadrática para dispositivos fototermoeléctricos de grafeno, se obtienen expresiones analíticas cerradas para el coeficiente Seebeck, la razón de Lorenz y la figura de mérito electrónica. Se muestra que el coeficiente Seebeck alcanza un máximo, que la ley de Wiedemann–Franz puede violarse de forma significativa a temperaturas altas, que el desorden reduce el desempeño termoeléctrico y que la figura de mérito tiene un límite superior en el grafeno limpio. También se discute el efecto del transporte radiativo de calor. El resultado es una vía analítica sencilla para estudiar el transporte termoeléctrico en grafeno más allá de la aproximación de Mott de baja temperatura.</p>
-            </div>
-           <div class="speaker-card">
-                <h3>Estudiante. José Manuel Zavala Vásquez</h3>
-                <p><strong>Institución:</strong> Programa de Licenciatura en Física, Departamento de Física, UNISON </p>
-                <p><strong>Título de la plática:</strong> Coeficientes de transporte termoeléctrico exactos y figura de mérito a partir de una serie infinita de Mott con funciones zeta para grafeno</p>
-                <p><strong>Resumen:</strong>En la formulación tensorial de la electrodinámica relativista, el uso de la notación de índices suele oscurecer las propiedades intrínsecamente geométricas de la dinámica de una partícula en presencia de un campo electromagnético. En esta plática presentaremos una derivación libre de coordenadas de la ecuación de Lorentz en el espaciotiempo de Minkowski, partiendo del principio de acción estacionaria. Utilizando herramientas del cálculo exterior, mostraremos cómo la variación de la acción sobre una trayectoria temporaloide genera de manera natural la 2-forma de Faraday. Finalmente, expandiremos el campo en una base de bivectores y proyectaremos la ecuación de movimiento resultante sobre una tétrada ortonormal general. Este enfoque permite recuperar la dinámica de Lorentz directamente en el marco local del observador y reinterpretar la interacción electromagnética como la causa de rotaciones y boosts sobre la tétrada a lo largo de la líneamundo, ofreciendo una perspectiva geométrica que prescinde de sistemas de coordenadas de laboratorio.</p>
-            </div>
-        </section>
-        
-    </div>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-left">
-                <p><span class="highlight-white">Semana de Física Teórica 2026</span> • Todos los derechos reservados</p>
-                <p>Contacto: <a href="mailto:sft2026@unison.mx">sft2026@unison.mx</a></p>
-            </div>
-            <div class="footer-right">
-                <p><strong>Academia de Física Teórica</strong></p>
-                <p>Departamento de Física • Universidad de Sonora</p>
-            </div>
+<div class="container">
+    <section id="poster">
+        <h2>Cartel Oficial</h2>
+        <div class="poster-container">
+            <img src="poster.png" alt="Póster de la Semana de Física Teórica 2026" class="poster-img">
         </div>
-    </footer>
+    </section>
 
-    <!-- SCRIPT DE PARTÍCULAS, ONDAS Y SONIDO PROCEDURAL -->
-    <script>
-        const pCanvas = document.getElementById('particlesCanvas');
-        const pCtx = pCanvas.getContext('2d');
+    <section id="programa">
+        <h2>Programa de Actividades</h2>
 
-        function resizePCanvas() {
-            pCanvas.width = window.innerWidth;
-            pCanvas.height = window.innerHeight;
+        <!-- MIÉRCOLES 25 -->
+        <h3 class="day-title">Miércoles 25 de Noviembre</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Hora</th>
+                    <th>Actividad / Plática</th>
+                    <th>Ponente</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>16:00 - 16:20</td>
+                    <td>Inauguración y Bienvenida</td>
+                    <td>Comité Organizador</td>
+                </tr>
+                <tr>
+                    <td>16:30 - 17:30</td>
+                    <td>La Ecuación de Dirac con Álgebra Geométrica (el espín, el reloj de de Broglie y el zitterbewegung en una visión unificada)</td>
+                    <td>Dr. Arnulfo Castellanos Moreno</td>
+                </tr>
+                <tr>
+                    <td>17:30 - 17:45</td>
+                    <td>Receso / Café</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>17:45 - 18:45</td>
+                    <td>Estudio de cristales líquidos nemáticos</td>
+                    <td>Dr. Luis Patricio Ramirez Rodríguez</td>
+                </tr>
+                <tr>
+                    <td>18:45 - 19:20</td>
+                    <td>Coeficientes de transporte termoeléctrico exactos y figura de mérito a partir de una serie infinita de Mott con funciones zeta para grafeno</td>
+                    <td>Est. Luis Daniel Villa Cortés</td>
+                </tr>
+                <tr>
+                    <td>19:20 - 20:00</td>
+                    <td>Deducción de la Ecuación de Lorentz en el Espaciotiempo de Minkowski a través del formalismo de tétradas</td>
+                    <td>Est. José Manuel Zavala Vásquez</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- JUEVES 26 -->
+        <h3 class="day-title">Jueves 26 de Noviembre</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Hora</th>
+                    <th>Actividad / Plática</th>
+                    <th>Ponente</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>16:00 - 17:00</td>
+                    <td>Una mirada al Cosmos a través del Hielo: Francis Halzen, IceCube y la Nueva Frontera de la Física Teórica</td>
+                    <td>Dr. León Manuel García de la Vega</td>
+                </tr>
+                <tr>
+                    <td>17:00 - 17:55</td>
+                    <td>El origen (dinámico) de la masa</td>
+                    <td>Dr. Jesús Javier Cobos Martínez</td>
+                </tr>
+                <tr>
+                    <td>18:00 - 18:55</td>
+                    <td>Receso / Café</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>18:55 - 19:55</td>
+                    <td>Introducción a los conceptos de Plasmónica</td>
+                    <td>Dr. Alejandro Castellanos Jaramillo</td>
+                </tr>
+                <tr>
+                    <td>19:55 - 20:00</td>
+                    <td>Violación espontánea de la simetría de carga paridad en una extensión del modelo estándar de la física de partículas</td>
+                    <td>M.C Javier Montaño Peraza</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- VIERNES 27 -->
+        <h3 class="day-title">Viernes 27 de Noviembre</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Hora</th>
+                    <th>Actividad / Plática</th>
+                    <th>Ponente</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>16:00 - 16:20</td>
+                    <td>Mensaje de la Dra. Ana María Cetto para las jóvenes y los jóvenes que estudian ciencia (Plática Virtual)</td>
+                    <td>Dra. Ana Maria Cetto Kramis</td>
+                </tr>
+                <tr>
+                    <td>16:30 - 17:00</td>
+                    <td>Plática de Estudiante</td>
+                    <td>Est. 2</td>
+                </tr>
+                <tr>
+                    <td>17:00 - 18:45</td>
+                    <td>Sesión de Posters</td>
+                    <td>Estudiantes participantes</td>
+                </tr>
+                <tr>
+                    <td>18:50 - 19:50</td>
+                    <td>Cómo la mecánica clásica predijo a Neptuno</td>
+                    <td>Dr. Daniel Castro Cisneros</td>
+                </tr>
+                <tr>
+                    <td>19:50 - 20:00</td>
+                    <td>Clausura Oficial</td>
+                    <td>Comité Organizador</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="ponentes">
+        <h2>Ponentes y Resúmenes</h2>
+        
+        <div class="speaker-card">
+            <h3>Dr. Arnulfo Castellanos Moreno</h3>
+            <p><strong>Institución:</strong> Departamento de Física, UNISON</p>
+            <p><strong>Título de la plática:</strong> La Ecuación de Dirac con Álgebra Geométrica (el espín, el reloj de de Broglie y el zitterbewegung en una visión unificada)</p>
+            <p><strong>Resumen:</strong> El Álgebra Geométrica (AG) es un formalismo matemático que permite describir toda la física en un solo lenguaje y contiene: los vectores, matrices, espinores y tensores...</p>
+        </div>
+        <!-- (Las demás tarjetas de ponentes continúan aquí...) -->
+    </section>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-left">
+            <p><span class="highlight-white">Semana de Física Teórica 2026</span> • Todos los derechos reservados</p>
+            <p>Contacto: <a href="mailto:sft2026@unison.mx">sft2026@unison.mx</a></p>
+        </div>
+        <div class="footer-right">
+            <p><strong>Academia de Física Teórica</strong></p>
+            <p>Departamento de Física • Universidad de Sonora</p>
+        </div>
+    </div>
+</footer>
+
+<!-- SCRIPT DE PARTÍCULAS Y ONDAS -->
+<script>
+    const pCanvas = document.getElementById('particlesCanvas');
+    const pCtx = pCanvas.getContext('2d');
+
+    function resizePCanvas() {
+        pCanvas.width = window.innerWidth;
+        pCanvas.height = window.innerHeight;
+    }
+    resizePCanvas();
+    window.addEventListener('resize', resizePCanvas);
+
+    let audioCtx = null;
+    let soundEnabled = false;
+    const audioBtn = document.getElementById('audioToggle');
+
+    audioBtn.addEventListener('click', () => {
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         }
-        resizePCanvas();
-        window.addEventListener('resize', resizePCanvas);
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+        soundEnabled = !soundEnabled;
+        audioBtn.textContent = soundEnabled ? "🔊 Sonido Activado" : "🔇 Activar Sonido Cuántico";
+    });
 
-        // CONFIGURACIÓN DE WEB AUDIO API
-        let audioCtx = null;
-        let soundEnabled = false;
-        const audioBtn = document.getElementById('audioToggle');
+    function playCreationSound() {
+        if (!soundEnabled || !audioCtx) return;
+        try {
+            let osc = audioCtx.createOscillator();
+            let gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(300, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.15);
+            gain.gain.setValueAtTime(0.03, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.15);
+        } catch (e) {}
+    }
 
-        audioBtn.addEventListener('click', () => {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
-            soundEnabled = !soundEnabled;
-            audioBtn.textContent = soundEnabled ? "🔊 Sonido Activado" : "🔇 Activar Sonido Cuántico";
+    function playAnnihilationSound() {
+        if (!soundEnabled || !audioCtx) return;
+        try {
+            let osc = audioCtx.createOscillator();
+            let gain = audioCtx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.3);
+            gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.3);
+        } catch (e) {}
+    }
+
+    let pairs = [];
+    let ripples = [];
+
+    function createPair() {
+        if (pairs.length < 10) {
+            let targetX = Math.random() * (pCanvas.width - 200) + 100;
+            let targetY = Math.random() * (pCanvas.height - 200) + 100;
+            let x1 = targetX + (Math.random() - 0.5) * 350;
+            let y1 = targetY + (Math.random() - 0.5) * 350;
+            let x2 = targetX - (x1 - targetX);
+            let y2 = targetY - (y1 - targetY);
+            pairs.push({
+                x1: x1, y1: y1, x2: x2, y2: y2,
+                targetX: targetX, targetY: targetY,
+                vx1: (targetX - x1) / 90, vy1: (targetY - y1) / 90,
+                vx2: (targetX - x2) / 90, vy2: (targetY - y2) / 90,
+                state: 'traveling'
+            });
+            playCreationSound();
+        }
+    }
+
+    function animateParticles() {
+        pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+        if (Math.random() < 0.06) createPair();
+        ripples.forEach((rip, rIndex) => {
+            rip.radius += 2.0;
+            rip.alpha -= 0.015;
+            pCtx.beginPath();
+            pCtx.arc(rip.x, rip.y, rip.radius, 0, Math.PI * 2);
+            pCtx.strokeStyle = `rgba(30, 160, 255, ${Math.max(rip.alpha, 0)})`;
+            pCtx.lineWidth = 1.5;
+            pCtx.stroke();
+            if (rip.alpha <= 0) ripples.splice(rIndex, 1);
         });
-
-        function playCreationSound() {
-            if (!soundEnabled || !audioCtx) return;
-            try {
-                let osc = audioCtx.createOscillator();
-                let gain = audioCtx.createGain();
-                
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(300, audioCtx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.15);
-
-                gain.gain.setValueAtTime(0.03, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
-
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.15);
-            } catch (e) {}
-        }
-
-        function playAnnihilationSound() {
-            if (!soundEnabled || !audioCtx) return;
-            try {
-                let osc = audioCtx.createOscillator();
-                let gain = audioCtx.createGain();
-
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(150, audioCtx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.3);
-
-                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
-
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.3);
-            } catch (e) {}
-        }
-
-        let pairs = [];
-        let ripples = [];
-
-        function createPair() {
-            if (pairs.length < 10) {
-                let targetX = Math.random() * (pCanvas.width - 200) + 100;
-                let targetY = Math.random() * (pCanvas.height - 200) + 100;
-
-                let x1 = targetX + (Math.random() - 0.5) * 350;
-                let y1 = targetY + (Math.random() - 0.5) * 350;
-
-                let x2 = targetX - (x1 - targetX);
-                let y2 = targetY - (y1 - targetY);
-
-                pairs.push({
-                    x1: x1, y1: y1,
-                    x2: x2, y2: y2,
-                    targetX: targetX,
-                    targetY: targetY,
-                    vx1: (targetX - x1) / 90,
-                    vy1: (targetY - y1) / 90,
-                    vx2: (targetX - x2) / 90,
-                    vy2: (targetY - y2) / 90,
-                    state: 'traveling'
-                });
-
-                playCreationSound();
-            }
-        }
-
-        function animateParticles() {
-            pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
-
-            if (Math.random() < 0.06) createPair();
-
-            ripples.forEach((rip, rIndex) => {
-                rip.radius += 2.0;
-                rip.alpha -= 0.015;
-
+        pairs.forEach((p, index) => {
+            if (p.state === 'traveling') {
+                p.x1 += p.vx1; p.y1 += p.vy1;
+                p.x2 += p.vx2; p.y2 += p.vy2;
                 pCtx.beginPath();
-                pCtx.arc(rip.x, rip.y, rip.radius, 0, Math.PI * 2);
-                pCtx.strokeStyle = `rgba(30, 160, 255, ${Math.max(rip.alpha, 0)})`;
-                pCtx.lineWidth = 1.5;
-                pCtx.stroke();
-
-                if (rip.alpha <= 0) {
-                    ripples.splice(rIndex, 1);
+                pCtx.arc(p.x1, p.y1, 3, 0, Math.PI * 2);
+                pCtx.fillStyle = 'rgba(56, 189, 248, 0.95)';
+                pCtx.fill();
+                pCtx.beginPath();
+                pCtx.arc(p.x2, p.y2, 3, 0, Math.PI * 2);
+                pCtx.fillStyle = 'rgba(244, 114, 182, 0.95)';
+                pCtx.fill();
+                let dist = Math.hypot(p.x1 - p.targetX, p.y1 - p.targetY);
+                if (dist < 4) {
+                    p.state = 'done';
+                    ripples.push({ x: p.targetX, y: p.targetY, radius: 4, alpha: 0.8 });
+                    ripples.push({ x: p.targetX, y: p.targetY, radius: 16, alpha: 0.55 });
+                    ripples.push({ x: p.targetX, y: p.targetY, radius: 30, alpha: 0.3 });
+                    playAnnihilationSound();
                 }
-            });
+            } else {
+                pairs.splice(index, 1);
+            }
+        });
+        requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+</script>
 
-            pairs.forEach((p, index) => {
-                if (p.state === 'traveling') {
-                    p.x1 += p.vx1;
-                    p.y1 += p.vy1;
-                    p.x2 += p.vx2;
-                    p.y2 += p.vy2;
+<!-- SCRIPT DEL BANNER DE ECUACIONES -->
+<script>
+    const canvas = document.getElementById('bannerCanvas');
+    const ctx = canvas.getContext('2d');
 
-                    pCtx.beginPath();
-                    pCtx.arc(p.x1, p.y1, 3, 0, Math.PI * 2);
-                    pCtx.fillStyle = 'rgba(56, 189, 248, 0.95)';
-                    pCtx.fill();
+    function resizeCanvas() {
+        canvas.width = canvas.parentElement.offsetWidth;
+        canvas.height = canvas.parentElement.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
-                    pCtx.beginPath();
-                    pCtx.arc(p.x2, p.y2, 3, 0, Math.PI * 2);
-                    pCtx.fillStyle = 'rgba(244, 114, 182, 0.95)';
-                    pCtx.fill();
+    const equations = [
+        "iℏ (∂/∂t)|ψ⟩ = H|ψ⟩", "(iγᵐ ∂ₘ - m)ψ = 0", 
+        "Rₘᵥ - ½gₘᵥR + Λgₘᵥ = (8πG/c⁴)Tₘᵥ", "∇ × E = -∂B/∂t", "E = mc²"
+    ];
 
-                    let dist = Math.hypot(p.x1 - p.targetX, p.y1 - p.targetY);
-                    if (dist < 4) {
-                        p.state = 'done';
-                        ripples.push({ x: p.targetX, y: p.targetY, radius: 4, alpha: 0.8 });
-                        ripples.push({ x: p.targetX, y: p.targetY, radius: 16, alpha: 0.55 });
-                        ripples.push({ x: p.targetX, y: p.targetY, radius: 30, alpha: 0.3 });
+    let eqParticles = [];
+    for (let i = 0; i < equations.length; i++) {
+        eqParticles.push({
+            text: equations[i],
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            speedX: (Math.random() - 0.5) * 0.4,
+            speedY: (Math.random() - 0.5) * 0.4
+        });
+    }
 
-                        playAnnihilationSound();
-                    }
-                } else {
-                    pairs.splice(index, 1);
-                }
-            });
-
-            requestAnimationFrame(animateParticles);
-        }
-
-        animateParticles();
-    </script>
-
-    <!-- SCRIPT DEL BANNER -->
-    <script>
-        const canvas = document.getElementById('bannerCanvas');
-        const ctx = canvas.getContext('2d');
-
-        function resizeCanvas() {
-            canvas.width = canvas.parentElement.offsetWidth;
-            canvas.height = canvas.parentElement.offsetHeight;
-        }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        const equations = [
-            "iℏ (∂/∂t)|ψ⟩ = H|ψ⟩", "(iγᵐ ∂ₘ - m)ψ = 0", 
-            "Rₘᵥ - ½gₘᵥR + Λgₘᵥ = (8πG/c⁴)Tₘᵥ", "∇ × E = -∂B/∂t", "E = mc²"
-        ];
-
-        let eqParticles = [];
-        for (let i = 0; i < equations.length; i++) {
-            eqParticles.push({
-                text: equations[i],
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                speedX: (Math.random() - 0.5) * 0.4,
-                speedY: (Math.random() - 0.5) * 0.4
-            });
-        }
-
-        function animateBanner() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.font = '15px "Courier New", monospace';
-            ctx.fillStyle = 'rgba(100, 180, 255, 0.45)';
-            eqParticles.forEach(p => {
-                ctx.fillText(p.text, p.x, p.y);
-                p.x += p.speedX; p.y += p.speedY;
-                if (p.x < 0 || p.x > canvas.width - 150) p.speedX *= -1;
-                if (p.y < 20 || p.y > canvas.height - 10) p.speedY *= -1;
-            });
-            requestAnimationFrame(animateBanner);
-        }
-        animateBanner();
-    </script>
-</body>
-</html>
+    function animateBanner() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.font = '15px "Courier New", monospace';
+        ctx.fillStyle = 'rgba
