@@ -249,22 +249,29 @@
             .footer-right {
                 text-align: center;
             }
-            .university-logo {
-                max-height: 110px;
-                top: 15px;
-                left: 15px;
-            }
-         .second-logo {
-            position: absolute !important;
-            top: 20px !important;
-            right: 30px !important;
-            width: 60px !important;       /* Ancho fijo de logo pequeño */
-            height: 60px !important;      /* Alto fijo para hacerlo cuadrado */
-            object-fit: cover !important; /* Esto "recorta" la imagen automáticamente para que encaje en el cuadro */
-            object-position: left center !important; /* Muestra la parte izquierda de tu banner (el átomo y SFT) */
-            border-radius: 8px !important; /* Opcional: esquinas ligeramente redondeadas */
-            background: transparent !important;
-            z-index: 10 !important;
+      .university-logo {
+            position: absolute;
+            top: 25px;
+            left: 30px;
+            max-height: 110px;
+            width: auto;
+            background: transparent;
+            padding: 0;
+            z-index: 3;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
+        }
+
+        /* ESTILO CORREGIDO PARA EL SEGUNDO LOGO (FUERA DE MEDIA QUERIES) */
+        .second-logo {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            height: 55px; /* Altura perfecta para que se vea como un logo pequeño */
+            max-height: 55px;
+            width: auto;
+            object-fit: contain;
+            background: transparent;
+            z-index: 10;
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
         }
 
@@ -282,6 +289,7 @@
 
 <header>
   <header>
+   <header>
     <canvas id="bannerCanvas"></canvas>
     
     <!-- Logo izquierdo (Universidad) -->
@@ -294,8 +302,9 @@
         <p><strong>Fecha:</strong> 25, 26 y 27 de Noviembre de 2026 | <strong>Horario:</strong> 16:00 a 20:00 hrs</p>
     </div>
     
-    <!-- Logo derecho (SFT 2026 / Cartel pequeño en la esquina) -->
+    <!-- Logo derecho (SFT 2026 pequeño en la esquina superior derecha) -->
     <img src="logosft26.png" alt="Segundo Logo" class="second-logo" onerror="this.style.display='none'">
+</header>
 </header>
 </header>
     <nav>
